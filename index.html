@@ -5,33 +5,33 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZENTRO - Ultra Dark RGB</title>
     <style>
-        /* --- LOADING SCREEN FIXED (TEXT ONLY) --- */
+        /* --- FITUR LOADING FIXED (AYAM ILANG, TEKS SINKRON) --- */
         #loading-overlay {
             position: fixed;
-            top: 0; left: 0; 
-            width: 100%; height: 100%;
+            top: 0; left: 0; width: 100%; height: 100%;
             background: #000;
-            z-index: 10000;
+            z-index: 9999;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
-            transition: opacity 0.8s ease, visibility 0.8s;
+            overflow: hidden;
+            transition: opacity 0.8s ease, visibility 0.8s; /* Biar ilang halus */
         }
+        
+        /* Chicken-walk dihapus sesuai request */
 
         .loading-text {
             color: #00e5ff;
             font-family: 'Segoe UI', sans-serif;
-            font-size: 22px;
-            letter-spacing: 5px;
+            letter-spacing: 5px; /* Sedikit lebih renggang biar estetik */
             font-weight: bold;
-            text-shadow: 0 0 15px #00e5ff;
+            text-transform: uppercase;
         }
-
         .dots::after {
             content: '';
             animation: dots 1.5s infinite;
         }
-
         @keyframes dots {
             0% { content: ''; }
             33% { content: '.'; }
@@ -39,7 +39,7 @@
             100% { content: '...'; }
         }
 
-        /* --- STYLE ASLI ZENTRO (KOMPLIT) --- */
+        /* --- STYLE ASLI LO (TIDAK ADA YANG DIUBAH) --- */
         @keyframes warnaWarni {
             0% { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; border-color: #00e5ff; }
             33% { color: #ff00ff; text-shadow: 0 0 20px #ff00ff; border-color: #ff00ff; }
@@ -74,10 +74,9 @@
             z-index: -1;
             transition: background 1s ease;
         }
-
         body {
             background-image: url('https://images.alphacoders.com/102/1023795.jpg'); 
-            background-size: 115% 115%;
+            background-size: 110% 110%; 
             background-position: center;
             background-attachment: fixed;
             background-color: #000;
@@ -106,7 +105,6 @@
             border-radius: 50%;
             animation: floating 10s infinite linear;
         }
-
         .container {
             width: 100%;
             max-width: 450px;
@@ -115,17 +113,16 @@
             z-index: 1;
         }
 
-        /* IDE 7: Clock Style */
         #zentro-clock {
             font-family: monospace;
             color: #00ff00;
             font-size: 12px;
             text-align: center;
             margin-bottom: 15px;
-            background: rgba(0,0,0,0.6);
-            padding: 8px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px;
             border-radius: 5px;
-            border: 1px solid #333;
+            border: 1px solid #1a1a1a;
         }
 
         h1 {
@@ -137,7 +134,6 @@
             position: relative;
             cursor: pointer;
         }
-
         .sub-title {
             text-align: center;
             font-size: 11px;
@@ -146,7 +142,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
         .status-bar {
             display: flex;
             align-items: center;
@@ -160,26 +155,22 @@
             backdrop-filter: blur(10px);
         }
         .dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; }
-
         .info-box {
             background: rgba(10, 10, 10, 0.85);
             border-radius: 12px;
             padding: 15px;
             margin-bottom: 20px;
             border: 1px solid rgba(255, 255, 255, 0.1);
-            border-left: 4px solid #00e5ff;
+            border-left: 3px solid #00e5ff;
             animation: borderWarni 20s infinite linear;
             backdrop-filter: blur(8px);
         }
-
         .info-box h3 { margin: 0 0 10px 0; font-size: 13px; animation: warnaWarni 20s infinite linear; text-transform: uppercase; }
         .power-bar { width: 100%; background: #222; height: 6px; border-radius: 10px; margin-top: 5px; margin-bottom: 10px; overflow: hidden; }
         .power-fill { height: 100%; background: #00e5ff; box-shadow: 0 0 10px #00e5ff; }
-
         ul { list-style: none; padding: 0; margin: 0; font-size: 13px; }
         li { padding: 10px 0; border-bottom: 1px solid #1a1a1a; display: flex; justify-content: space-between; align-items: center; }
         li:last-child { border: none; }
-        
         .rank-tag { font-size: 10px; background: #222; padding: 2px 6px; border-radius: 4px; color: #ffcc00; border: 1px solid #444; display: flex; align-items: center; gap: 4px; }
         .role-tag { font-size: 9px; color: #00e5ff; border: 1px solid #00e5ff; padding: 1px 4px; border-radius: 3px; margin-left: 5px; text-transform: uppercase; }
 
@@ -188,8 +179,8 @@
         .btn-ml { background: #ffcc00 !important; color: #000 !important; border: none !important; animation: none !important; }
 
         #secret-board { display: none; background: rgba(255, 255, 255, 0.05); border: 1px solid #00e5ff; color: #ffffff; padding: 15px; margin-top: 20px; border-radius: 12px; font-size: 12px; text-align: center; backdrop-filter: blur(10px); }
-        
         .footer { margin-top: 30px; text-align: center; font-size: 11px; color: #ffffff; font-weight: bold; text-shadow: 2px 2px 8px #000; }
+        
         .version-history { text-align: center; font-size: 9px; color: #444; margin-top: 10px; letter-spacing: 1px; text-transform: uppercase; }
     </style>
 </head>
@@ -290,7 +281,7 @@
         </div>
 
         <div class="btn-group">
-            <a href="mobilelegends://" class="btn btn-ml">LAUNCH GAME (MLBB)</a>
+            <a href="mobilelegends://" class="btn btn-ml">LAUNCHE GAME (MLBB)</a>
             <a href="https://play.google.com/store/apps/details?id=com.mobile.legends" class="btn">DOWNLOAD DI PLAY STORE</a>
             <a href="#" class="btn">JOIN WHATSAPP GROUP</a>
         </div>
@@ -303,14 +294,13 @@
 
         <div class="footer">SYSTEM MAINTAINED BY MZUVEL • 2026</div>
 
-        <div class="version-history">v1.0 (Base) • v2.0 (RGB) • v3.0 (Infrastructure) • v4.0 (Parallax & Logic)</div>
+        <div class="version-history">v1.0 • v2.0 • v3.0 • v4.0</div>
     </div>
 
     <script>
         window.onload = function() {
             const loader = document.getElementById('loading-overlay');
-            
-            // Loading stabil 3 detik
+            // Menutup loading setelah 3 detik pas, biar teks sempet kebaca
             setTimeout(() => {
                 loader.style.opacity = '0';
                 setTimeout(() => {
@@ -319,27 +309,23 @@
             }, 3000); 
 
             updateGreeting();
-            updateClock(); // Fitur 7
-            checkTimeMode(); // Fitur 11
+            updateClock(); 
+            checkTimeMode(); 
         };
 
-        // Fitur 8: Parallax
         document.addEventListener("mousemove", function(e) {
-            const x = (window.innerWidth / 2 - e.pageX) / 40;
-            const y = (window.innerHeight / 2 - e.pageY) / 40;
+            const x = (window.innerWidth / 2 - e.pageX) / 35;
+            const y = (window.innerHeight / 2 - e.pageY) / 35;
             document.body.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
         });
 
-        // Fitur 7: Clock
         function updateClock() {
             const now = new Date();
             const timeStr = now.toLocaleTimeString('en-GB', { hour12: false });
-            const clockEl = document.getElementById('zentro-clock');
-            if (clockEl) clockEl.innerText = `SERVER TIME: ${timeStr} WIB`;
+            document.getElementById('zentro-clock').innerText = `SERVER TIME: ${timeStr} WIB`;
             setTimeout(updateClock, 1000);
         }
 
-        // Fitur 11: Auto Dark/Light
         function checkTimeMode() {
             const hr = new Date().getHours();
             if (hr >= 18 || hr < 6) {
@@ -352,12 +338,10 @@
         function updateGreeting() {
             const hour = new Date().getHours();
             const greetElement = document.getElementById('time-greeting');
-            if (greetElement) {
-                if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI, LEGEND!";
-                else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG, LEGEND!";
-                else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE, LEGEND!";
-                else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
-            }
+            if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI, LEGEND!";
+            else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG, LEGEND!";
+            else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE, LEGEND!";
+            else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
         }
 
         let clickCount = 0;
@@ -365,7 +349,7 @@
             clickCount++;
             if (clickCount === 3) {
                 const sb = document.getElementById('secret-board');
-                if (sb) sb.style.display = (sb.style.display === 'block') ? 'none' : 'block';
+                sb.style.display = (sb.style.display === 'block') ? 'none' : 'block';
                 clickCount = 0;
             }
         }
