@@ -5,6 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZENTRO - Ultra Dark RGB</title>
     <style>
+        /* IDE NO. 1: Terminal Welcome Style */
+        #terminal-overlay {
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: #000;
+            z-index: 9999;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: #00ff00;
+            font-family: 'Courier New', Courier, monospace;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
         @keyframes warnaWarni {
             0% { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; border-color: #00e5ff; }
             33% { color: #ff00ff; text-shadow: 0 0 20px #ff00ff; border-color: #ff00ff; }
@@ -103,6 +119,7 @@
             margin-bottom: 5px;
             font-weight: 900;
             position: relative;
+            cursor: pointer;
         }
 
         .sub-title {
@@ -241,7 +258,6 @@
             text-shadow: 2px 2px 8px #000;
         }
         
-        /* Music Playlist Style */
         .music-player {
             display: flex;
             flex-direction: column;
@@ -281,9 +297,27 @@
             filter: invert(1);
             opacity: 0.7;
         }
+
+        /* IDE NO. 15: Secret Message Board Style */
+        #secret-board {
+            display: none;
+            border: 1px dashed #ff00ff;
+            background: rgba(255, 0, 255, 0.1);
+            color: #ff00ff;
+            padding: 10px;
+            margin-top: 20px;
+            border-radius: 8px;
+            font-size: 11px;
+            text-align: center;
+            animation: glitch 1s infinite;
+        }
     </style>
 </head>
 <body>
+
+    <div id="terminal-overlay">
+        <div id="terminal-text" style="width: 100%; max-width: 400px;"></div>
+    </div>
 
     <div class="particles">
         <div class="particle" style="left: 10%; width: 2px; height: 2px; animation-delay: 0s;"></div>
@@ -294,12 +328,12 @@
     </div>
 
     <div class="container">
-        <h1>ZENTRO</h1>
-        <div class="sub-title">Dark RGB Infrastructure v3.3</div>
+        <h1 id="main-logo" onclick="secretTrigger()">ZENTRO</h1>
+        <div class="sub-title">Dark RGB Infrastructure v4.0</div>
 
         <div class="status-bar">
             <div class="dot"></div>
-            <span style="font-size: 10px; color: #00ff00; font-weight: bold; letter-spacing: 1px;">SYSTEM ONLINE: READY TO MABAR</span>
+            <span id="time-greeting" style="font-size: 10px; color: #00ff00; font-weight: bold; letter-spacing: 1px;">SYSTEM ONLINE</span>
         </div>
 
         <marquee style="font-size: 11px; color: #ffcc00; font-weight: bold; background: rgba(0,0,0,0.85); padding: 8px; border-radius: 8px; border: 1px solid #1a1a1a; margin-bottom: 25px;">
@@ -374,7 +408,7 @@
             <div class="music-player">
                 <div id="songTitle" class="music-info">Now Playing: Cuma Mantan</div>
                 <audio id="myAudio" controls>
-                    <source id="audioSource" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/WFMU/Broke_For_Free/Directionless_EP/Broke_For_Free_-_01_-_Night_Owl.mp3" type="audio/mpeg">
+                    <source id="audioSource" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                 </audio>
                 <div class="music-controls">
                     <button class="m-btn" onclick="prevTrack()">PREV</button>
@@ -387,7 +421,7 @@
             <h3> RULES</h3>
             <ul style="color: #aaa;">
                 <li>• Respect each other</li>
-                <li>• No cheat / No toxic</li>
+                <li>• No cheat</li>
                 <li>• Active in group / Talk</li>
             </ul>
         </div>
@@ -398,12 +432,63 @@
             <a href="#" class="btn">JOIN WHATSAPP GROUP</a>
         </div>
 
+        <div id="secret-board">
+            <strong>[TOP SECRET MESSAGE]</strong><br>
+            Password Lobby Minggu Ini: ZNT-PRO-2026<br>
+            "Keep it quiet, Legend!"
+        </div>
+
         <div class="footer">
             SYSTEM MAINTAINED BY MZUVEL • 2026
         </div>
     </div>
 
     <script>
+        // IDE NO. 1: Terminal Logic
+        const terminalText = [
+            "> Bypassing Zentro Security...",
+            "> Loading Infrastructure v4.0...",
+            "> Scanning Member Database...",
+            "> Access Granted. Welcome, Legend!"
+        ];
+        let line = 0;
+        const terminalDiv = document.getElementById('terminal-text');
+
+        function typeTerminal() {
+            if (line < terminalText.length) {
+                terminalDiv.innerHTML += terminalText[line] + "<br>";
+                line++;
+                setTimeout(typeTerminal, 800);
+            } else {
+                setTimeout(() => {
+                    document.getElementById('terminal-overlay').style.display = 'none';
+                }, 1000);
+            }
+        }
+        window.onload = typeTerminal;
+
+        // IDE NO. 4: Auto Greeting Logic
+        function updateGreeting() {
+            const hour = new Date().getHours();
+            const greetElement = document.getElementById('time-greeting');
+            if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI, LEGEND!";
+            else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG, LEGEND!";
+            else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE, LEGEND!";
+            else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
+        }
+        updateGreeting();
+
+        // IDE NO. 15: Secret Board Logic
+        let clickCount = 0;
+        function secretTrigger() {
+            clickCount++;
+            if (clickCount === 3) {
+                document.getElementById('secret-board').style.display = 'block';
+                clickCount = 0;
+            }
+        }
+
+        // Music Logic
         const songs = [
             { title: "Cuma Mantan", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
             { title: "Wena Wena x Choris Sonia", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
@@ -422,7 +507,7 @@
             source.src = songs[currentSongIndex].url;
             titleDisplay.innerText = "Now Playing: " + songs[currentSongIndex].title;
             audio.load();
-            audio.play().catch(e => console.log("Auto-play blocked, please click play manually."));
+            audio.play().catch(e => console.log("Play manual ya."));
         }
 
         function nextTrack() {
@@ -435,7 +520,6 @@
             loadSong(currentSongIndex);
         }
 
-        // Auto next pas lagu abis
         audio.onended = function() {
             nextTrack();
         };
