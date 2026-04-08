@@ -3,76 +3,101 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZENTRO INTERNAL</title>
+    <title>ZENTRO - Dashboard</title>
     <style>
         body {
-            background-color: #0a0a0c;
-            color: #ffffff;
-            font-family: 'Segoe UI', sans-serif;
+            background-color: #0d0d12;
+            color: #e0e0e0;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
             display: flex;
             flex-direction: column;
             align-items: center;
-            min-height: 100vh;
             margin: 0;
             padding: 20px;
         }
         .container {
             width: 100%;
-            max-width: 400px;
-            background: #16161a;
+            max-width: 450px;
+            background: #1a1a20;
             padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
-            text-align: center;
-            border: 1px solid #222;
+            border-radius: 25px;
+            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
+            border: 1px solid #333;
         }
         h1 {
             color: #00e5ff;
-            text-shadow: 0 0 15px rgba(0,229,255,0.5);
-            letter-spacing: 4px;
-            margin-bottom: 10px;
+            text-shadow: 0 0 15px rgba(0,229,255,0.4);
+            letter-spacing: 5px;
+            text-align: center;
+            margin-bottom: 5px;
         }
-        .status-badge {
-            background: rgba(0,229,255,0.1);
-            color: #00e5ff;
-            padding: 5px 15px;
-            border-radius: 50px;
+        .sub-title {
+            text-align: center;
             font-size: 12px;
-            font-weight: bold;
-            border: 1px solid #00e5ff;
+            color: #888;
             margin-bottom: 20px;
-            display: inline-block;
+            text-transform: uppercase;
         }
         .info-box {
-            background: #1f1f23;
-            border-radius: 12px;
+            background: #23232a;
+            border-radius: 15px;
             padding: 15px;
             margin-top: 15px;
-            text-align: left;
-            border-left: 4px solid #00e5ff;
+            border-left: 5px solid #00e5ff;
         }
         .info-box h3 {
             margin: 0 0 10px 0;
             font-size: 14px;
             color: #00e5ff;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+        .info-box p {
+            font-size: 13px;
+            line-height: 1.6;
+            margin: 0;
+            color: #bbb;
         }
         ul {
             list-style: none;
             padding: 0;
             margin: 0;
             font-size: 13px;
-            color: #ccc;
         }
         li {
-            margin-bottom: 8px;
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
             display: flex;
             justify-content: space-between;
         }
+        li:last-child { border: none; }
+        .btn-group {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+        }
+        .btn {
+            background: #00e5ff;
+            color: #000;
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 10px;
+            font-weight: bold;
+            font-size: 14px;
+            text-align: center;
+            transition: 0.3s;
+        }
+        .btn:hover {
+            background: #00b8cc;
+            transform: translateY(-2px);
+        }
         .footer {
             margin-top: 30px;
+            text-align: center;
             font-size: 10px;
             color: #555;
-            letter-spacing: 1px;
         }
     </style>
 </head>
@@ -80,29 +105,47 @@
 
     <div class="container">
         <h1>ZENTRO</h1>
-        <div class="status-badge">SISTEM AKTIF</div>
+        <div class="sub-title">Internal Management System</div>
         
-        <p style="font-size: 13px; color: #888;">Pusat data internal dan koordinasi tim.</p>
+        <div class="info-box">
+            <h3> TENTANG KLAN</h3>
+            <p>ZENTRO adalah komunitas gaming yang berfokus pada solidaritas dan kompetisi. Dibentuk untuk menyatukan player berbakat dalam satu visi yang sama.</p>
+        </div>
 
         <div class="info-box">
-            <h3>📅 JADWAL MABAR</h3>
+            <h3> JADWAL OPERASIONAL</h3>
             <ul>
-                <li><span>Senin - Jumat</span> <span>19.00 WIB</span></li>
-                <li><span>Sabtu - Minggu</span> <span>Full Day</span></li>
+                <li><span>Mabar Rutin</span> <span>19.30 WIB</span></li>
+                <li><span>Evaluasi Tim</span> <span>Malam Minggu</span></li>
+                <li><span>Open Member</span> <span>Setiap Awal Bulan</span></li>
             </ul>
         </div>
 
         <div class="info-box">
-            <h3>👥 TOP RANK MEMBER</h3>
+            <h3> RULES & KETENTUAN</h3>
             <ul>
-                <li><span>1. Mzuvel</span> <span>Leader</span></li>
-                <li><span>2. Anggota 2</span> <span>Member</span></li>
-                <li><span>3. Anggota 3</span> <span>Member</span></li>
+                <li>• No Toxic / No Drama</li>
+                <li>• Aktif Mabar Minimal 3x Seminggu</li>
+                <li>• Menghormati Seluruh Anggota</li>
             </ul>
+        </div>
+
+        <div class="info-box">
+            <h3> STRUKTUR INTI</h3>
+            <ul>
+                <li><span>Mzuvel</span> <strong>Leader</strong></li>
+                <li><span>Admin Zentro</span> <strong>Moderator</strong></li>
+                <li><span>Elite Member</span> <strong>Vanguard</strong></li>
+            </ul>
+        </div>
+
+        <div class="btn-group">
+            <a href="#" class="btn">MASUK GRUP WHATSAPP</a>
+            <a href="https://github.com/Mzuvel" class="btn" style="background: transparent; color: #00e5ff; border: 1px solid #00e5ff;">LIHAT REPOSITORY</a>
         </div>
 
         <div class="footer">
-            ZENTRO PROJECT © 2026
+            DIBANGUN OLEH MZUVEL • VERSION 2.0 • 2026
         </div>
     </div>
 
