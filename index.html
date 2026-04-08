@@ -3,74 +3,108 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZENTRO - INTERNAL</title>
+    <title>ZENTRO INTERNAL</title>
     <style>
-        :root {
-            --bg: #0a0a0c;
-            --accent: #00e5ff;
-            --card: #16161a;
-            --text: #ffffff;
-        }
         body {
-            background-color: var(--bg);
-            color: var(--text);
+            background-color: #0a0a0c;
+            color: #ffffff;
             font-family: 'Segoe UI', sans-serif;
-            margin: 0;
             display: flex;
             flex-direction: column;
             align-items: center;
             min-height: 100vh;
-        }
-        header {
-            width: 100%;
-            padding: 50px 0;
-            text-align: center;
-            background: linear-gradient(180deg, rgba(0,229,255,0.1) 0%, transparent 100%);
-            border-bottom: 1px solid var(--accent);
-        }
-        h1 {
-            color: var(--accent);
-            letter-spacing: 5px;
-            text-shadow: 0 0 15px var(--accent);
             margin: 0;
+            padding: 20px;
         }
         .container {
-            width: 90%;
-            max-width: 500px;
-            margin-top: 30px;
-        }
-        .card {
-            background: var(--card);
-            border: 1px solid #333;
-            padding: 20px;
-            border-radius: 12px;
-            text-align: center;
-            box-shadow: 0 10px 20px rgba(0,0,0,0.5);
-        }
-        .status {
-            display: inline-block;
-            padding: 5px 15px;
+            width: 100%;
+            max-width: 400px;
+            background: #16161a;
+            padding: 25px;
             border-radius: 20px;
-            background: rgba(0, 229, 255, 0.1);
-            color: var(--accent);
-            font-size: 0.8rem;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            text-align: center;
+            border: 1px solid #222;
+        }
+        h1 {
+            color: #00e5ff;
+            text-shadow: 0 0 15px rgba(0,229,255,0.5);
+            letter-spacing: 4px;
+            margin-bottom: 10px;
+        }
+        .status-badge {
+            background: rgba(0,229,255,0.1);
+            color: #00e5ff;
+            padding: 5px 15px;
+            border-radius: 50px;
+            font-size: 12px;
             font-weight: bold;
-            border: 1px solid var(--accent);
+            border: 1px solid #00e5ff;
+            margin-bottom: 20px;
+            display: inline-block;
+        }
+        .info-box {
+            background: #1f1f23;
+            border-radius: 12px;
+            padding: 15px;
+            margin-top: 15px;
+            text-align: left;
+            border-left: 4px solid #00e5ff;
+        }
+        .info-box h3 {
+            margin: 0 0 10px 0;
+            font-size: 14px;
+            color: #00e5ff;
+        }
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+            font-size: 13px;
+            color: #ccc;
+        }
+        li {
+            margin-bottom: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+        .footer {
+            margin-top: 30px;
+            font-size: 10px;
+            color: #555;
+            letter-spacing: 1px;
         }
     </style>
 </head>
 <body>
-    <header>
-        <h1>ZENTRO</h1>
-    </header>
+
     <div class="container">
-        <div class="card">
-            <div class="status">SISTEM AKTIF</div>
-            <p style="margin-top: 20px; opacity: 0.8;">Selamat datang di halaman internal. Gunakan informasi ini hanya untuk keperluan grup mabar.</p>
+        <h1>ZENTRO</h1>
+        <div class="status-badge">SISTEM AKTIF</div>
+        
+        <p style="font-size: 13px; color: #888;">Pusat data internal dan koordinasi tim.</p>
+
+        <div class="info-box">
+            <h3>📅 JADWAL MABAR</h3>
+            <ul>
+                <li><span>Senin - Jumat</span> <span>19.00 WIB</span></li>
+                <li><span>Sabtu - Minggu</span> <span>Full Day</span></li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3>👥 TOP RANK MEMBER</h3>
+            <ul>
+                <li><span>1. Mzuvel</span> <span>Leader</span></li>
+                <li><span>2. Anggota 2</span> <span>Member</span></li>
+                <li><span>3. Anggota 3</span> <span>Member</span></li>
+            </ul>
+        </div>
+
+        <div class="footer">
+            ZENTRO PROJECT © 2026
         </div>
     </div>
-    <footer style="margin-top: auto; padding: 20px; opacity: 0.4; font-size: 0.7rem;">
-        &copy; 2026 ZENTRO PROJECT
-    </footer>
+
 </body>
 </html>
