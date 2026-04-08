@@ -3,9 +3,22 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZENTRO - Ultra Dark</title>
+    <title>ZENTRO - Ultra Dark RGB</title>
     <style>
-        /* Warna Dasar Hitam Pekat */
+        @keyframes warnaWarni {
+            0% { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; border-color: #00e5ff; }
+            33% { color: #ff00ff; text-shadow: 0 0 20px #ff00ff; border-color: #ff00ff; }
+            66% { color: #00ff00; text-shadow: 0 0 20px #00ff00; border-color: #00ff00; }
+            100% { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; border-color: #00e5ff; }
+        }
+
+        @keyframes borderWarni {
+            0% { border-left-color: #00e5ff; }
+            33% { border-left-color: #ff00ff; }
+            66% { border-left-color: #00ff00; }
+            100% { border-left-color: #00e5ff; }
+        }
+
         body {
             background-color: #000000; 
             color: #ffffff;
@@ -19,15 +32,14 @@
         .container {
             width: 100%;
             max-width: 450px;
-            background: #0a0a0a; /* Box sedikit lebih terang dari background biar kelihatan */
+            background: #0a0a0a;
             padding: 25px;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.1);
+            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
             border: 1px solid #1a1a1a;
         }
         h1 {
-            color: #00e5ff;
-            text-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+            animation: warnaWarni 5s infinite linear;
             letter-spacing: 6px;
             text-align: center;
             margin-bottom: 5px;
@@ -48,11 +60,12 @@
             margin-top: 15px;
             border: 1px solid #1a1a1a;
             border-left: 3px solid #00e5ff;
+            animation: borderWarni 5s infinite linear;
         }
         .info-box h3 {
             margin: 0 0 10px 0;
             font-size: 13px;
-            color: #00e5ff;
+            animation: warnaWarni 5s infinite linear;
             text-transform: uppercase;
         }
         .info-box p {
@@ -61,12 +74,7 @@
             margin: 0;
             color: #999;
         }
-        ul {
-            list-style: none;
-            padding: 0;
-            margin: 0;
-            font-size: 13px;
-        }
+        ul { list-style: none; padding: 0; margin: 0; font-size: 13px; }
         li {
             padding: 10px 0;
             border-bottom: 1px solid #1a1a1a;
@@ -74,14 +82,6 @@
             justify-content: space-between;
         }
         li:last-child { border: none; }
-        .rank-badge {
-            background: #00e5ff;
-            color: #000;
-            padding: 2px 8px;
-            border-radius: 4px;
-            font-size: 10px;
-            font-weight: bold;
-        }
         .btn-group {
             margin-top: 25px;
             display: flex;
@@ -89,7 +89,8 @@
             gap: 12px;
         }
         .btn {
-            background: #00e5ff;
+            animation: warnaWarni 5s infinite linear;
+            background: transparent;
             color: #000;
             text-decoration: none;
             padding: 14px;
@@ -97,7 +98,7 @@
             font-weight: bold;
             font-size: 14px;
             text-align: center;
-            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
+            border: 1px solid #00e5ff;
         }
         .footer {
             margin-top: 40px;
@@ -112,11 +113,11 @@
 
     <div class="container">
         <h1>ZENTRO</h1>
-        <div class="sub-title">Dark Infrastructure v2.1</div>
+        <div class="sub-title">Dark RGB Infrastructure v2.2</div>
         
         <div class="info-box">
             <h3> DATABASE KLAN</h3>
-            <p>Sistem koordinasi internal ZENTRO. Dibangun untuk memantau perkembangan tim dan strategi mabar secara terpusat.</p>
+            <p>Sistem koordinasi internal ZENTRO. Sekarang dengan efek warna dinamis.</p>
         </div>
 
         <div class="info-box">
@@ -132,21 +133,12 @@
             <ul style="color: #888;">
                 <li>• Respect each other</li>
                 <li>• No cheat / No toxic</li>
-                <li>• Active in group</li>
-            </ul>
-        </div>
-
-        <div class="info-box">
-            <h3> CORE TEAM</h3>
-            <ul>
-                <li><span>Mzuvel</span> <span class="rank-badge">LEADER</span></li>
-                <li><span>Admin</span> <span class="rank-badge">MODS</span></li>
+                <li>• Active in group / Talk</li>
             </ul>
         </div>
 
         <div class="btn-group">
             <a href="#" class="btn">JOIN WHATSAPP GROUP</a>
-            <a href="https://github.com/Mzuvel" class="btn" style="background: transparent; color: #00e5ff; border: 1px solid #00e5ff; box-shadow: none;">SOURCE CODE</a>
         </div>
 
         <div class="footer">
