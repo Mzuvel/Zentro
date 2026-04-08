@@ -19,7 +19,6 @@
             100% { border-left-color: #00e5ff; }
         }
 
-        /* Glitch Effect yang lebih real */
         @keyframes glitch {
             0% { text-shadow: 2px 0 #ff00ff, -2px 0 #00e5ff; transform: translate(0); }
             20% { text-shadow: -2px 0 #ff00ff, 2px 0 #00e5ff; transform: translate(-1px, 1px); }
@@ -35,14 +34,41 @@
             100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
         }
 
+        /* No 4: Typing Effect */
+        @keyframes typing {
+            from { width: 0 }
+            to { width: 100% }
+        }
+
+        /* No 1: Pulse Effect Status */
+        @keyframes pulseStatus {
+            0% { opacity: 1; box-shadow: 0 0 5px #00ff00; }
+            50% { opacity: 0.3; box-shadow: 0 0 20px #00ff00; }
+            100% { opacity: 1; box-shadow: 0 0 5px #00ff00; }
+        }
+
         body::before {
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%);
-            background-size: 100% 4px;
-            z-index: 100;
-            pointer-events: none;
+            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)); /* Overlay biar teks tetap kebaca */
+            z-index: -1;
+        }
+
+        body {
+            /* Background Gambar Hero ML Pemandangan Cerah */
+            background-image: url('https://wallpaperaccess.com/full/2222165.jpg'); 
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #ffffff;
+            font-family: 'Inter', 'Segoe UI', sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            padding: 20px;
+            overflow-x: hidden;
         }
 
         .particles {
@@ -60,28 +86,19 @@
             animation: floating 10s infinite linear;
         }
 
-        body {
-            background-color: #000000; 
-            color: #ffffff;
-            font-family: 'Inter', 'Segoe UI', sans-serif;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            margin: 0;
-            padding: 20px;
-            overflow-x: hidden;
-        }
         .container {
             width: 100%;
             max-width: 450px;
-            background: #0a0a0a;
+            background: rgba(10, 10, 10, 0.9); /* Transparan dikit biar estetik */
             padding: 25px;
             border-radius: 20px;
-            box-shadow: 0 0 30px rgba(255, 255, 255, 0.05);
-            border: 1px solid #1a1a1a;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
+            border: 1px solid rgba(255, 255, 255, 0.1);
             position: relative;
             z-index: 1;
+            backdrop-filter: blur(10px);
         }
+
         h1 {
             animation: warnaWarni 20s infinite linear, glitch 0.3s infinite;
             letter-spacing: 6px;
@@ -90,16 +107,47 @@
             font-weight: 900;
             position: relative;
         }
+
         .sub-title {
             text-align: center;
             font-size: 11px;
-            color: #555;
+            color: #00e5ff;
             margin-bottom: 25px;
             text-transform: uppercase;
             letter-spacing: 2px;
+            overflow: hidden;
+            white-space: nowrap;
+            margin-left: auto;
+            margin-right: auto;
+            border-right: 2px solid #00e5ff;
+            width: 0;
+            animation: typing 3s steps(30, end) forwards, blink 0.5s step-end infinite;
         }
+
+        @keyframes blink { from, to { border-color: transparent } 50% { border-color: #00e5ff } }
+
+        /* No 1: Status Bar */
+        .status-bar {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            margin-bottom: 20px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px;
+            border-radius: 50px;
+            border: 1px solid rgba(0, 255, 0, 0.3);
+        }
+        .dot {
+            width: 8px;
+            height: 8px;
+            background: #00ff00;
+            border-radius: 50%;
+            animation: pulseStatus 1.5s infinite;
+        }
+
         .info-box {
-            background: #111111;
+            background: rgba(17, 17, 17, 0.8);
             border-radius: 12px;
             padding: 15px;
             margin-top: 15px;
@@ -129,12 +177,6 @@
             box-shadow: 0 0 10px #00e5ff;
         }
 
-        .info-box p {
-            font-size: 13px;
-            line-height: 1.5;
-            margin: 0;
-            color: #999;
-        }
         ul { list-style: none; padding: 0; margin: 0; font-size: 13px; }
         li {
             padding: 10px 0;
@@ -168,6 +210,7 @@
             font-size: 14px;
             text-align: center;
             border: 1px solid #00e5ff;
+            backdrop-filter: blur(5px);
         }
         .btn-ml {
             background: #ffcc00 !important;
@@ -179,7 +222,7 @@
             margin-top: 40px;
             text-align: center;
             font-size: 10px;
-            color: #333;
+            color: #aaa;
             font-weight: bold;
         }
         audio {
@@ -203,15 +246,20 @@
 
     <div class="container">
         <h1>ZENTRO</h1>
-        <div class="sub-title">Dark RGB Infrastructure v2.9</div>
+        <div class="sub-title">Dark RGB Infrastructure v3.0</div>
 
-        <marquee style="font-size: 11px; color: #ffcc00; font-weight: bold; background: #111; padding: 5px; border-radius: 5px; border: 1px solid #1a1a1a; margin-bottom: 15px;">
+        <div class="status-bar">
+            <div class="dot"></div>
+            <span style="font-size: 10px; color: #00ff00; font-weight: bold; letter-spacing: 1px;">SYSTEM ONLINE: READY TO MABAR</span>
+        </div>
+
+        <marquee style="font-size: 11px; color: #ffcc00; font-weight: bold; background: rgba(17,17,17,0.8); padding: 5px; border-radius: 5px; border: 1px solid #1a1a1a; margin-bottom: 15px;">
             PENGUMUMAN: Mabar rutin jam 19.00 WIB • Gunakan Tag Klan [ZNT] • Tetap Solid dan No Toxic!
         </marquee>
         
         <div class="info-box">
             <h3> DATABASE KLAN</h3>
-            <p>Sistem koordinasi internal ZENTRO. Portal mabar dan informasi anggota.</p>
+            <p style="font-size: 13px; color: #999; margin: 0;">Sistem koordinasi internal ZENTRO. Portal mabar dan informasi anggota.</p>
         </div>
 
         <div class="info-box">
