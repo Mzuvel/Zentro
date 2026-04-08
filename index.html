@@ -108,6 +108,12 @@
             text-align: center;
             border: 1px solid #00e5ff;
         }
+        .btn-ml {
+            background: #ffcc00 !important;
+            color: #000 !important;
+            border: none !important;
+            animation: none !important;
+        }
         .footer {
             margin-top: 40px;
             text-align: center;
@@ -124,13 +130,15 @@
         }
     </style>
 </head>
-<body onclick="playMusic()"> <div class="container">
+<body>
+
+    <div class="container">
         <h1>ZENTRO</h1>
-        <div class="sub-title">Dark RGB Infrastructure v2.5</div>
+        <div class="sub-title">Dark RGB Infrastructure v2.6</div>
         
         <div class="info-box">
             <h3> DATABASE KLAN</h3>
-            <p>Sistem koordinasi internal ZENTRO. Musik akan aktif saat lo berinteraksi dengan layar.</p>
+            <p>Sistem koordinasi internal ZENTRO. Portal mabar dan informasi anggota.</p>
         </div>
 
         <div class="info-box">
@@ -161,7 +169,6 @@
 
         <div class="info-box">
             <h3> BG MUSIC</h3>
-            <p style="font-size: 10px; margin-bottom: 5px;">Musik aktif (Autoplay Enabled):</p>
             <audio id="myAudio" controls loop>
                 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
             </audio>
@@ -177,6 +184,10 @@
         </div>
 
         <div class="btn-group">
+            <a href="mobilelegends://" class="btn btn-ml">LAUNCHE GAME (MLBB)</a>
+            
+            <a href="https://play.google.com/store/apps/details?id=com.mobile.legends" class="btn">DOWNLOAD DI PLAY STORE</a>
+            
             <a href="#" class="btn">JOIN WHATSAPP GROUP</a>
         </div>
 
@@ -184,13 +195,6 @@
             SYSTEM MAINTAINED BY MZUVEL • 2026
         </div>
     </div>
-
-    <script>
-        function playMusic() {
-            var audio = document.getElementById("myAudio");
-            audio.play();
-        }
-    </script>
 
 </body>
 </html>
