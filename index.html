@@ -19,17 +19,16 @@
             100% { border-left-color: #00e5ff; }
         }
 
-        /* No 1: Glitch Effect */
+        /* Glitch Effect yang lebih real */
         @keyframes glitch {
-            0% { transform: translate(0); }
-            20% { transform: translate(-2px, 2px); }
-            40% { transform: translate(-2px, -2px); }
-            60% { transform: translate(2px, 2px); }
-            80% { transform: translate(2px, -2px); }
-            100% { transform: translate(0); }
+            0% { text-shadow: 2px 0 #ff00ff, -2px 0 #00e5ff; transform: translate(0); }
+            20% { text-shadow: -2px 0 #ff00ff, 2px 0 #00e5ff; transform: translate(-1px, 1px); }
+            40% { text-shadow: 2px 0 #00ff00, -2px 0 #ff00ff; transform: translate(-1px, -1px); }
+            60% { text-shadow: -2px 0 #00e5ff, 2px 0 #00ff00; transform: translate(1px, 1px); }
+            80% { text-shadow: 2px 0 #ff00ff, -2px 0 #00e5ff; transform: translate(1px, -1px); }
+            100% { text-shadow: -2px 0 #ff00ff, 2px 0 #00e5ff; transform: translate(0); }
         }
 
-        /* No 3: Partikel Animasi Background */
         @keyframes floating {
             0% { transform: translateY(0px) translateX(0px); opacity: 0; }
             50% { opacity: 0.5; }
@@ -46,7 +45,6 @@
             pointer-events: none;
         }
 
-        /* No 3: Container Partikel */
         .particles {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -85,11 +83,12 @@
             z-index: 1;
         }
         h1 {
-            animation: warnaWarni 20s infinite linear, glitch 1s infinite steps(2) alternate-reverse;
+            animation: warnaWarni 20s infinite linear, glitch 0.3s infinite;
             letter-spacing: 6px;
             text-align: center;
             margin-bottom: 5px;
             font-weight: 900;
+            position: relative;
         }
         .sub-title {
             text-align: center;
@@ -115,7 +114,6 @@
             text-transform: uppercase;
         }
 
-        /* No 2: Power Level Bars */
         .power-bar {
             width: 100%;
             background: #222;
@@ -218,9 +216,16 @@
 
         <div class="info-box">
             <h3> CLAN POWER LEVEL</h3>
-            <div style="font-size: 11px; color: #888;">WIN RATE KLAN</div>
-            <div class="power-bar"><div class="power-fill" style="width: 85%;"></div></div>
-            <div style="font-size: 11px; color: #888;">ACTIVITY</div>
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #888;">
+                <span>WIN RATE KLAN</span>
+                <span>78%</span>
+            </div>
+            <div class="power-bar"><div class="power-fill" style="width: 78%;"></div></div>
+            
+            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #888;">
+                <span>ACTIVITY</span>
+                <span>98%</span>
+            </div>
             <div class="power-bar"><div class="power-fill" style="width: 98%; background: #00ff00; box-shadow: 0 0 10px #00ff00;"></div></div>
         </div>
 
