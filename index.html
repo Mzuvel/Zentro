@@ -115,25 +115,22 @@
             color: #333;
             font-weight: bold;
         }
-        /* Style Audio Player */
         audio {
             width: 100%;
             height: 30px;
             margin-top: 10px;
-            filter: invert(1); /* Biar warnanya nyambung ke tema gelap */
+            filter: invert(1);
             opacity: 0.5;
         }
     </style>
 </head>
-<body>
-
-    <div class="container">
+<body onclick="playMusic()"> <div class="container">
         <h1>ZENTRO</h1>
-        <div class="sub-title">Dark RGB Infrastructure v2.4</div>
+        <div class="sub-title">Dark RGB Infrastructure v2.5</div>
         
         <div class="info-box">
             <h3> DATABASE KLAN</h3>
-            <p>Sistem koordinasi internal ZENTRO. Sekarang dengan efek warna dinamis.</p>
+            <p>Sistem koordinasi internal ZENTRO. Musik akan aktif saat lo berinteraksi dengan layar.</p>
         </div>
 
         <div class="info-box">
@@ -164,10 +161,9 @@
 
         <div class="info-box">
             <h3> BG MUSIC</h3>
-            <p style="font-size: 10px; margin-bottom: 5px;">Putar musik tema klan:</p>
-            <audio controls>
+            <p style="font-size: 10px; margin-bottom: 5px;">Musik aktif (Autoplay Enabled):</p>
+            <audio id="myAudio" controls loop>
                 <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                Browser lo nggak support audio.
             </audio>
         </div>
 
@@ -188,6 +184,13 @@
             SYSTEM MAINTAINED BY MZUVEL • 2026
         </div>
     </div>
+
+    <script>
+        function playMusic() {
+            var audio = document.getElementById("myAudio");
+            audio.play();
+        }
+    </script>
 
 </body>
 </html>
