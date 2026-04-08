@@ -61,6 +61,16 @@
             overflow-x: hidden;
         }
 
+        /* Class khusus untuk Battery Saver */
+        body.battery-saver .particles, 
+        body.battery-saver .particle {
+            display: none !important;
+        }
+        body.battery-saver * {
+            animation: none !important;
+            text-shadow: none !important;
+        }
+
         .particles {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -205,6 +215,7 @@
             text-align: center;
             border: 1px solid #00e5ff;
             backdrop-filter: blur(5px);
+            cursor: pointer;
         }
         .btn-ml {
             background: #ffcc00 !important;
@@ -255,9 +266,27 @@
             <span id="time-greeting" style="font-size: 10px; color: #00ff00; font-weight: bold; letter-spacing: 1px;">SYSTEM ONLINE</span>
         </div>
 
-        <marquee style="font-size: 11px; color: #ffcc00; font-weight: bold; background: rgba(0,0,0,0.85); padding: 8px; border-radius: 8px; border: 1px solid #1a1a1a; margin-bottom: 25px;">
+        <marquee id="main-marquee" style="font-size: 11px; color: #ffcc00; font-weight: bold; background: rgba(0,0,0,0.85); padding: 8px; border-radius: 8px; border: 1px solid #1a1a1a; margin-bottom: 25px;">
             PENGUMUMAN: Mabar rutin jam 19.00 WIB • Gunakan Tag Klan [ZNT] • Tetap Solid dan No Toxic!
         </marquee>
+
+        <div class="info-box" style="border-left-color: #ff0000;">
+            <h3> CLAN CURRENT STATUS</h3>
+            <div id="clan-status" style="font-size: 14px; font-weight: bold; text-align: center; color: #00ff00; padding: 5px;">RECRUITING / ACTIVE</div>
+            <div style="display: flex; gap: 5px; margin-top: 10px;">
+                <button onclick="updateStatus('MABAR PUSH RANK', '#ff00ff')" style="flex:1; font-size: 9px; padding: 5px; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px;">SET MABAR</button>
+                <button onclick="updateStatus('TURNAMEN MODE', '#ff0000')" style="flex:1; font-size: 9px; padding: 5px; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px;">SET TURNAMEN</button>
+                <button onclick="updateStatus('RECRUITING / ACTIVE', '#00ff00')" style="flex:1; font-size: 9px; padding: 5px; background: #222; color: #fff; border: 1px solid #444; border-radius: 4px;">RESET</button>
+            </div>
+        </div>
+
+        <div class="info-box" style="background: linear-gradient(45deg, rgba(0,229,255,0.1), rgba(10,10,10,0.85));">
+            <h3> MEMBER SPOTLIGHT</h3>
+            <div id="spotlight-area" style="text-align: center; padding: 5px;">
+                <div style="font-size: 16px; font-weight: bold; color: #ffcc00;" id="spotlight-name">Mzuvel</div>
+                <div style="font-size: 10px; color: #00e5ff; text-transform: uppercase;">Most Active Member</div>
+            </div>
+        </div>
         
         <div class="info-box">
             <h3> DATABASE KLAN</h3>
@@ -340,6 +369,7 @@
             <a href="mobilelegends://" class="btn btn-ml">LAUNCHE GAME (MLBB)</a>
             <a href="https://play.google.com/store/apps/details?id=com.mobile.legends" class="btn">DOWNLOAD DI PLAY STORE</a>
             <a href="#" class="btn">JOIN WHATSAPP GROUP</a>
+            <button onclick="toggleBatterySaver()" class="btn" style="border-color: #ffcc00; color: #ffcc00;">BATTERY SAVER MODE</button>
         </div>
 
         <div id="secret-board">
@@ -356,6 +386,7 @@
     <script>
         window.onload = function() {
             updateGreeting();
+            randomSpotlight();
         };
 
         function updateGreeting() {
@@ -375,6 +406,31 @@
                 sb.style.display = (sb.style.display === 'block') ? 'none' : 'block';
                 clickCount = 0;
             }
+        }
+
+        // FUNGSI No 12: BATTERY SAVER
+        function toggleBatterySaver() {
+            document.body.classList.toggle('battery-saver');
+            const btn = event.target;
+            if(document.body.classList.contains('battery-saver')) {
+                btn.innerText = "ANIMATION: OFF";
+            } else {
+                btn.innerText = "BATTERY SAVER MODE";
+            }
+        }
+
+        // FUNGSI No 14: RANDOM SPOTLIGHT
+        function randomSpotlight() {
+            const members = ["Mzuvel", "Admin Zentro", "Shadow-ZNT", "Viper", "ZENTRO-Core"];
+            const randomName = members[Math.floor(Math.random() * members.length)];
+            document.getElementById('spotlight-name').innerText = randomName;
+        }
+
+        // FUNGSI No 15: STATUS UPDATE
+        function updateStatus(text, color) {
+            const statusDiv = document.getElementById('clan-status');
+            statusDiv.innerText = text;
+            statusDiv.style.color = color;
         }
     </script>
 </body>
