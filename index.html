@@ -82,6 +82,14 @@
             justify-content: space-between;
         }
         li:last-child { border: none; }
+        .rank-tag {
+            font-size: 10px;
+            background: #222;
+            padding: 2px 6px;
+            border-radius: 4px;
+            color: #ffcc00;
+            border: 1px solid #444;
+        }
         .btn-group {
             margin-top: 25px;
             display: flex;
@@ -107,13 +115,21 @@
             color: #333;
             font-weight: bold;
         }
+        /* Style Audio Player */
+        audio {
+            width: 100%;
+            height: 30px;
+            margin-top: 10px;
+            filter: invert(1); /* Biar warnanya nyambung ke tema gelap */
+            opacity: 0.5;
+        }
     </style>
 </head>
 <body>
 
     <div class="container">
         <h1>ZENTRO</h1>
-        <div class="sub-title">Dark RGB Infrastructure v2.3</div>
+        <div class="sub-title">Dark RGB Infrastructure v2.4</div>
         
         <div class="info-box">
             <h3> DATABASE KLAN</h3>
@@ -130,11 +146,29 @@
         </div>
 
         <div class="info-box">
+            <h3> TOP SQUAD MEMBERS</h3>
+            <ul>
+                <li><span>1. Mzuvel</span> <span class="rank-tag">MYTHIC IMMORTAL</span></li>
+                <li><span>2. Member 2</span> <span class="rank-tag">MYTHIC</span></li>
+                <li><span>3. Member 3</span> <span class="rank-tag">MYTHIC</span></li>
+            </ul>
+        </div>
+
+        <div class="info-box">
             <h3> OPERATIONAL TIME</h3>
             <ul>
                 <li><span>Mabar Night</span> <span>19.00 - End</span></li>
                 <li><span>Weekend Push</span> <span>Full Time</span></li>
             </ul>
+        </div>
+
+        <div class="info-box">
+            <h3> BG MUSIC</h3>
+            <p style="font-size: 10px; margin-bottom: 5px;">Putar musik tema klan:</p>
+            <audio controls>
+                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                Browser lo nggak support audio.
+            </audio>
         </div>
 
         <div class="info-box">
