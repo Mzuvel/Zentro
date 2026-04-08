@@ -184,7 +184,6 @@
         }
         li:last-child { border: none; }
         
-        /* IDE NO. 10: Rank Tag & Icon */
         .rank-tag {
             font-size: 10px;
             background: #222;
@@ -197,7 +196,6 @@
             gap: 4px;
         }
 
-        /* IDE NO. 15: Role Tag Anggota */
         .role-tag {
             font-size: 9px;
             color: #00e5ff;
@@ -243,11 +241,18 @@
             text-shadow: 2px 2px 8px #000;
         }
         
-        /* IDE NO. 12: Music Playlist Style */
+        /* Music Playlist Style */
         .music-player {
             display: flex;
             flex-direction: column;
             gap: 8px;
+        }
+        .music-info {
+            font-size: 11px;
+            color: #00e5ff;
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 5px;
         }
         .music-controls {
             display: flex;
@@ -263,6 +268,11 @@
             padding: 4px 10px;
             border-radius: 4px;
             cursor: pointer;
+            transition: 0.3s;
+        }
+        .m-btn:hover {
+            background: #00e5ff;
+            color: black;
         }
 
         audio {
@@ -285,7 +295,7 @@
 
     <div class="container">
         <h1>ZENTRO</h1>
-        <div class="sub-title">Dark RGB Infrastructure v3.2</div>
+        <div class="sub-title">Dark RGB Infrastructure v3.3</div>
 
         <div class="status-bar">
             <div class="dot"></div>
@@ -362,12 +372,13 @@
         <div class="info-box">
             <h3> BG MUSIC PLAYLIST</h3>
             <div class="music-player">
-                <audio id="myAudio" controls loop>
-                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                <div id="songTitle" class="music-info">Now Playing: Cuma Mantan</div>
+                <audio id="myAudio" controls>
+                    <source id="audioSource" src="https://files.freemusicarchive.org/storage-freemusicarchive-org/music/WFMU/Broke_For_Free/Directionless_EP/Broke_For_Free_-_01_-_Night_Owl.mp3" type="audio/mpeg">
                 </audio>
                 <div class="music-controls">
-                    <button class="m-btn">PREV</button>
-                    <button class="m-btn">NEXT TRACK</button>
+                    <button class="m-btn" onclick="prevTrack()">PREV</button>
+                    <button class="m-btn" onclick="nextTrack()">NEXT TRACK</button>
                 </div>
             </div>
         </div>
@@ -391,6 +402,44 @@
             SYSTEM MAINTAINED BY MZUVEL • 2026
         </div>
     </div>
+
+    <script>
+        const songs = [
+            { title: "Cuma Mantan", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
+            { title: "Wena Wena x Choris Sonia", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+            { title: "Viral Remix 2024", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+            { title: "DJ Mabar Zentro", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+            { title: "Phonk Drift MLBB", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" }
+        ];
+
+        let currentSongIndex = 0;
+        const audio = document.getElementById('myAudio');
+        const source = document.getElementById('audioSource');
+        const titleDisplay = document.getElementById('songTitle');
+
+        function loadSong(index) {
+            currentSongIndex = index;
+            source.src = songs[currentSongIndex].url;
+            titleDisplay.innerText = "Now Playing: " + songs[currentSongIndex].title;
+            audio.load();
+            audio.play().catch(e => console.log("Auto-play blocked, please click play manually."));
+        }
+
+        function nextTrack() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+        }
+
+        function prevTrack() {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+        }
+
+        // Auto next pas lagu abis
+        audio.onended = function() {
+            nextTrack();
+        };
+    </script>
 
 </body>
 </html>
