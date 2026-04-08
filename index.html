@@ -3,11 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZENTRO - Dashboard</title>
+    <title>ZENTRO - Ultra Dark</title>
     <style>
+        /* Warna Dasar Hitam Pekat */
         body {
-            background-color: #0d0d12;
-            color: #e0e0e0;
+            background-color: #000000; 
+            color: #ffffff;
             font-family: 'Inter', 'Segoe UI', sans-serif;
             display: flex;
             flex-direction: column;
@@ -18,46 +19,47 @@
         .container {
             width: 100%;
             max-width: 450px;
-            background: #1a1a20;
+            background: #0a0a0a; /* Box sedikit lebih terang dari background biar kelihatan */
             padding: 25px;
-            border-radius: 25px;
-            box-shadow: 0 15px 35px rgba(0,0,0,0.7);
-            border: 1px solid #333;
+            border-radius: 20px;
+            box-shadow: 0 0 30px rgba(0, 229, 255, 0.1);
+            border: 1px solid #1a1a1a;
         }
         h1 {
             color: #00e5ff;
-            text-shadow: 0 0 15px rgba(0,229,255,0.4);
-            letter-spacing: 5px;
+            text-shadow: 0 0 20px rgba(0, 229, 255, 0.6);
+            letter-spacing: 6px;
             text-align: center;
             margin-bottom: 5px;
+            font-weight: 900;
         }
         .sub-title {
             text-align: center;
-            font-size: 12px;
-            color: #888;
-            margin-bottom: 20px;
+            font-size: 11px;
+            color: #555;
+            margin-bottom: 25px;
             text-transform: uppercase;
+            letter-spacing: 2px;
         }
         .info-box {
-            background: #23232a;
-            border-radius: 15px;
+            background: #111111;
+            border-radius: 12px;
             padding: 15px;
             margin-top: 15px;
-            border-left: 5px solid #00e5ff;
+            border: 1px solid #1a1a1a;
+            border-left: 3px solid #00e5ff;
         }
         .info-box h3 {
             margin: 0 0 10px 0;
-            font-size: 14px;
+            font-size: 13px;
             color: #00e5ff;
-            display: flex;
-            align-items: center;
-            gap: 8px;
+            text-transform: uppercase;
         }
         .info-box p {
             font-size: 13px;
-            line-height: 1.6;
+            line-height: 1.5;
             margin: 0;
-            color: #bbb;
+            color: #999;
         }
         ul {
             list-style: none;
@@ -66,38 +68,43 @@
             font-size: 13px;
         }
         li {
-            padding: 8px 0;
-            border-bottom: 1px solid #333;
+            padding: 10px 0;
+            border-bottom: 1px solid #1a1a1a;
             display: flex;
             justify-content: space-between;
         }
         li:last-child { border: none; }
+        .rank-badge {
+            background: #00e5ff;
+            color: #000;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-size: 10px;
+            font-weight: bold;
+        }
         .btn-group {
             margin-top: 25px;
             display: flex;
             flex-direction: column;
-            gap: 10px;
+            gap: 12px;
         }
         .btn {
             background: #00e5ff;
             color: #000;
             text-decoration: none;
-            padding: 12px;
-            border-radius: 10px;
+            padding: 14px;
+            border-radius: 8px;
             font-weight: bold;
             font-size: 14px;
             text-align: center;
-            transition: 0.3s;
-        }
-        .btn:hover {
-            background: #00b8cc;
-            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(0, 229, 255, 0.2);
         }
         .footer {
-            margin-top: 30px;
+            margin-top: 40px;
             text-align: center;
             font-size: 10px;
-            color: #555;
+            color: #333;
+            font-weight: bold;
         }
     </style>
 </head>
@@ -105,47 +112,45 @@
 
     <div class="container">
         <h1>ZENTRO</h1>
-        <div class="sub-title">Internal Management System</div>
+        <div class="sub-title">Dark Infrastructure v2.1</div>
         
         <div class="info-box">
-            <h3> TENTANG KLAN</h3>
-            <p>ZENTRO adalah komunitas gaming yang berfokus pada solidaritas dan kompetisi. Dibentuk untuk menyatukan player berbakat dalam satu visi yang sama.</p>
+            <h3>📂 DATABASE KLAN</h3>
+            <p>Sistem koordinasi internal ZENTRO. Dibangun untuk memantau perkembangan tim dan strategi mabar secara terpusat.</p>
         </div>
 
         <div class="info-box">
-            <h3> JADWAL OPERASIONAL</h3>
+            <h3>⏰ OPERATIONAL TIME</h3>
             <ul>
-                <li><span>Mabar Rutin</span> <span>19.30 WIB</span></li>
-                <li><span>Evaluasi Tim</span> <span>Malam Minggu</span></li>
-                <li><span>Open Member</span> <span>Setiap Awal Bulan</span></li>
+                <li><span>Mabar Night</span> <span>19.00 - End</span></li>
+                <li><span>Weekend Push</span> <span>Full Time</span></li>
             </ul>
         </div>
 
         <div class="info-box">
-            <h3> RULES & KETENTUAN</h3>
-            <ul>
-                <li>• No Toxic / No Drama</li>
-                <li>• Aktif Mabar Minimal 3x Seminggu</li>
-                <li>• Menghormati Seluruh Anggota</li>
+            <h3>📜 RULES</h3>
+            <ul style="color: #888;">
+                <li>• Respect each other</li>
+                <li>• No cheat / No toxic</li>
+                <li>• Active in group</li>
             </ul>
         </div>
 
         <div class="info-box">
-            <h3> STRUKTUR INTI</h3>
+            <h3>🎖️ CORE TEAM</h3>
             <ul>
-                <li><span>Mzuvel</span> <strong>Leader</strong></li>
-                <li><span>Admin Zentro</span> <strong>Moderator</strong></li>
-                <li><span>Elite Member</span> <strong>Vanguard</strong></li>
+                <li><span>Mzuvel</span> <span class="rank-badge">LEADER</span></li>
+                <li><span>Admin</span> <span class="rank-badge">MODS</span></li>
             </ul>
         </div>
 
         <div class="btn-group">
-            <a href="#" class="btn">MASUK GRUP WHATSAPP</a>
-            <a href="https://github.com/Mzuvel" class="btn" style="background: transparent; color: #00e5ff; border: 1px solid #00e5ff;">LIHAT REPOSITORY</a>
+            <a href="#" class="btn">JOIN WHATSAPP GROUP</a>
+            <a href="https://github.com/Mzuvel" class="btn" style="background: transparent; color: #00e5ff; border: 1px solid #00e5ff; box-shadow: none;">SOURCE CODE</a>
         </div>
 
         <div class="footer">
-            DIBANGUN OLEH MZUVEL • VERSION 2.0 • 2026
+            SYSTEM MAINTAINED BY MZUVEL • 2026
         </div>
     </div>
 
