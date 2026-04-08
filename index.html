@@ -19,6 +19,18 @@
             100% { border-left-color: #00e5ff; }
         }
 
+        /* No 2: Efek Scanline */
+        body::before {
+            content: "";
+            position: fixed;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.1) 50%), 
+                        linear-gradient(90deg, rgba(255, 0, 0, 0.03), rgba(0, 255, 0, 0.01), rgba(0, 0, 255, 0.03));
+            background-size: 100% 3px, 3px 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+
         body {
             background-color: #000000; 
             color: #ffffff;
@@ -49,10 +61,21 @@
             text-align: center;
             font-size: 11px;
             color: #555;
-            margin-bottom: 25px;
+            margin-bottom: 15px; /* Disesuaikan buat marquee */
             text-transform: uppercase;
             letter-spacing: 2px;
         }
+        
+        /* No 3: Styling Marquee */
+        .announcement {
+            background: #111;
+            border: 1px solid #1a1a1a;
+            padding: 5px;
+            margin-bottom: 20px;
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
         .info-box {
             background: #111111;
             border-radius: 12px;
@@ -90,6 +113,14 @@
             color: #ffcc00;
             border: 1px solid #444;
         }
+
+        /* Styling buat No 5 */
+        .hero-name {
+            color: #00e5ff;
+            font-weight: bold;
+            font-style: italic;
+        }
+
         .btn-group {
             margin-top: 25px;
             display: flex;
@@ -134,7 +165,13 @@
 
     <div class="container">
         <h1>ZENTRO</h1>
-        <div class="sub-title">Dark RGB Infrastructure v2.6</div>
+        <div class="sub-title">Dark RGB Infrastructure v2.8</div>
+
+        <div class="announcement">
+            <marquee style="font-size: 11px; color: #ffcc00; font-weight: bold;">
+                INFO: Mabar rutin setiap jam 19.00 WIB • Gunakan Tag Klan [ZNT] • Dilarang Toxic/Cheat!
+            </marquee>
+        </div>
         
         <div class="info-box">
             <h3> DATABASE KLAN</h3>
@@ -160,41 +197,6 @@
         </div>
 
         <div class="info-box">
-            <h3> OPERATIONAL TIME</h3>
+            <h3> WALL OF FAME (HEROES)</h3>
             <ul>
-                <li><span>Mabar Night</span> <span>19.00 - End</span></li>
-                <li><span>Weekend Push</span> <span>Full Time</span></li>
-            </ul>
-        </div>
-
-        <div class="info-box">
-            <h3> BG MUSIC</h3>
-            <audio id="myAudio" controls loop>
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            </audio>
-        </div>
-
-        <div class="info-box">
-            <h3> RULES</h3>
-            <ul style="color: #888;">
-                <li>• Respect each other</li>
-                <li>• No cheat / No toxic</li>
-                <li>• Active in group / Talk</li>
-            </ul>
-        </div>
-
-        <div class="btn-group">
-            <a href="mobilelegends://" class="btn btn-ml">LAUNCHE GAME (MLBB)</a>
-            
-            <a href="https://play.google.com/store/apps/details?id=com.mobile.legends" class="btn">DOWNLOAD DI PLAY STORE</a>
-            
-            <a href="#" class="btn">JOIN WHATSAPP GROUP</a>
-        </div>
-
-        <div class="footer">
-            SYSTEM MAINTAINED BY MZUVEL • 2026
-        </div>
-    </div>
-
-</body>
-</html>
+                <li><span>Mzuvel</span> <span class="hero-name">Fanny /
