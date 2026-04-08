@@ -58,12 +58,11 @@
         }
 
         body {
-            /* Link Gambar Official MLBB - Landscape Cerah & Luas */
             background-image: url('https://images.alphacoders.com/102/1023795.jpg'); 
             background-size: cover;
             background-position: center;
             background-attachment: fixed;
-            background-color: #000; /* Fallback kalau internet lambat */
+            background-color: #000;
             color: #ffffff;
             font-family: 'Inter', 'Segoe UI', sans-serif;
             display: flex;
@@ -181,9 +180,11 @@
             border-bottom: 1px solid #1a1a1a;
             display: flex;
             justify-content: space-between;
+            align-items: center;
         }
         li:last-child { border: none; }
         
+        /* IDE NO. 10: Rank Tag & Icon */
         .rank-tag {
             font-size: 10px;
             background: #222;
@@ -191,6 +192,20 @@
             border-radius: 4px;
             color: #ffcc00;
             border: 1px solid #444;
+            display: flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        /* IDE NO. 15: Role Tag Anggota */
+        .role-tag {
+            font-size: 9px;
+            color: #00e5ff;
+            border: 1px solid #00e5ff;
+            padding: 1px 4px;
+            border-radius: 3px;
+            margin-left: 5px;
+            text-transform: uppercase;
         }
 
         .btn-group {
@@ -228,10 +243,31 @@
             text-shadow: 2px 2px 8px #000;
         }
         
+        /* IDE NO. 12: Music Playlist Style */
+        .music-player {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+        .music-controls {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-top: 5px;
+        }
+        .m-btn {
+            background: rgba(255,255,255,0.1);
+            border: 1px solid #00e5ff;
+            color: white;
+            font-size: 10px;
+            padding: 4px 10px;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
         audio {
             width: 100%;
             height: 30px;
-            margin-top: 10px;
             filter: invert(1);
             opacity: 0.7;
         }
@@ -292,9 +328,18 @@
         <div class="info-box">
             <h3> TOP SQUAD MEMBERS</h3>
             <ul>
-                <li><span>1. Mzuvel</span> <span class="rank-tag">MYTHIC IMMORTAL</span></li>
-                <li><span>2. Member 2</span> <span class="rank-tag">MYTHIC</span></li>
-                <li><span>3. Member 3</span> <span class="rank-tag">MYTHIC</span></li>
+                <li>
+                    <div>1. Mzuvel <span class="role-tag">Core/Jungler</span></div> 
+                    <span class="rank-tag">🔥 MYTHIC IMMORTAL</span>
+                </li>
+                <li>
+                    <div>2. Member 2 <span class="role-tag">Roamer</span></div> 
+                    <span class="rank-tag">🌟 MYTHIC</span>
+                </li>
+                <li>
+                    <div>3. Member 3 <span class="role-tag">Exp Lane</span></div> 
+                    <span class="rank-tag">🌟 MYTHIC</span>
+                </li>
             </ul>
         </div>
 
@@ -315,10 +360,16 @@
         </div>
 
         <div class="info-box">
-            <h3> BG MUSIC</h3>
-            <audio id="myAudio" controls loop>
-                <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-            </audio>
+            <h3> BG MUSIC PLAYLIST</h3>
+            <div class="music-player">
+                <audio id="myAudio" controls loop>
+                    <source src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
+                </audio>
+                <div class="music-controls">
+                    <button class="m-btn">PREV</button>
+                    <button class="m-btn">NEXT TRACK</button>
+                </div>
+            </div>
         </div>
 
         <div class="info-box">
