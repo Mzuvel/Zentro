@@ -34,13 +34,12 @@
             100% { transform: translateY(-100vh) translateX(20px); opacity: 0; }
         }
 
-        /* No 4: Typing Effect */
+        /* Perbaikan No 4: Typing & Deleting Effect */
         @keyframes typing {
-            from { width: 0 }
-            to { width: 100% }
+            0%, 90%, 100% { width: 0; }
+            30%, 60% { width: 100%; }
         }
 
-        /* No 1: Pulse Effect Status */
         @keyframes pulseStatus {
             0% { opacity: 1; box-shadow: 0 0 5px #00ff00; }
             50% { opacity: 0.3; box-shadow: 0 0 20px #00ff00; }
@@ -51,12 +50,11 @@
             content: "";
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
-            background: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.7)); /* Overlay biar teks tetap kebaca */
+            background: rgba(0, 0, 0, 0.4); 
             z-index: -1;
         }
 
         body {
-            /* Background Gambar Hero ML Pemandangan Cerah */
             background-image: url('https://wallpaperaccess.com/full/2222165.jpg'); 
             background-size: cover;
             background-position: center;
@@ -89,14 +87,9 @@
         .container {
             width: 100%;
             max-width: 450px;
-            background: rgba(10, 10, 10, 0.9); /* Transparan dikit biar estetik */
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 0 30px rgba(0, 229, 255, 0.2);
-            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent; /* Ubah ke transparan biar gap antar box kelihatan */
             position: relative;
             z-index: 1;
-            backdrop-filter: blur(10px);
         }
 
         h1 {
@@ -121,22 +114,20 @@
             margin-right: auto;
             border-right: 2px solid #00e5ff;
             width: 0;
-            animation: typing 3s steps(30, end) forwards, blink 0.5s step-end infinite;
+            animation: typing 4s steps(30, end) infinite; /* Diubah jadi infinite ngetik-ilang */
         }
 
-        @keyframes blink { from, to { border-color: transparent } 50% { border-color: #00e5ff } }
-
-        /* No 1: Status Bar */
         .status-bar {
             display: flex;
             align-items: center;
             justify-content: center;
             gap: 8px;
-            margin-bottom: 20px;
-            background: rgba(0,0,0,0.5);
-            padding: 5px;
+            margin-bottom: 25px; /* Tambah jarak bawah */
+            background: rgba(0,0,0,0.7);
+            padding: 8px;
             border-radius: 50px;
             border: 1px solid rgba(0, 255, 0, 0.3);
+            backdrop-filter: blur(10px);
         }
         .dot {
             width: 8px;
@@ -146,15 +137,18 @@
             animation: pulseStatus 1.5s infinite;
         }
 
+        /* Perbaikan: Jarak (Gap) antar kotak info */
         .info-box {
-            background: rgba(17, 17, 17, 0.8);
+            background: rgba(17, 17, 17, 0.85);
             border-radius: 12px;
             padding: 15px;
-            margin-top: 15px;
-            border: 1px solid #1a1a1a;
+            margin-bottom: 20px; /* Ini batas/gang yang bikin background kelihatan */
+            border: 1px solid rgba(255, 255, 255, 0.1);
             border-left: 3px solid #00e5ff;
             animation: borderWarni 20s infinite linear;
+            backdrop-filter: blur(8px);
         }
+
         .info-box h3 {
             margin: 0 0 10px 0;
             font-size: 13px;
@@ -185,6 +179,7 @@
             justify-content: space-between;
         }
         li:last-child { border: none; }
+        
         .rank-tag {
             font-size: 10px;
             background: #222;
@@ -193,15 +188,16 @@
             color: #ffcc00;
             border: 1px solid #444;
         }
+
         .btn-group {
-            margin-top: 25px;
+            margin-top: 10px;
             display: flex;
             flex-direction: column;
-            gap: 12px;
+            gap: 15px; /* Jarak antar tombol */
         }
         .btn {
             animation: warnaWarni 20s infinite linear;
-            background: transparent;
+            background: rgba(0, 0, 0, 0.7);
             color: #ffffff;
             text-decoration: none;
             padding: 14px;
@@ -218,19 +214,22 @@
             border: none !important;
             animation: none !important;
         }
+
         .footer {
-            margin-top: 40px;
+            margin-top: 50px;
             text-align: center;
             font-size: 10px;
-            color: #aaa;
+            color: #ccc;
             font-weight: bold;
+            text-shadow: 0 0 5px #000;
         }
+        
         audio {
             width: 100%;
             height: 30px;
             margin-top: 10px;
             filter: invert(1);
-            opacity: 0.5;
+            opacity: 0.6;
         }
     </style>
 </head>
@@ -246,20 +245,20 @@
 
     <div class="container">
         <h1>ZENTRO</h1>
-        <div class="sub-title">Dark RGB Infrastructure v3.0</div>
+        <div class="sub-title">Dark RGB Infrastructure v3.1</div>
 
         <div class="status-bar">
             <div class="dot"></div>
             <span style="font-size: 10px; color: #00ff00; font-weight: bold; letter-spacing: 1px;">SYSTEM ONLINE: READY TO MABAR</span>
         </div>
 
-        <marquee style="font-size: 11px; color: #ffcc00; font-weight: bold; background: rgba(17,17,17,0.8); padding: 5px; border-radius: 5px; border: 1px solid #1a1a1a; margin-bottom: 15px;">
+        <marquee style="font-size: 11px; color: #ffcc00; font-weight: bold; background: rgba(17,17,17,0.85); padding: 8px; border-radius: 8px; border: 1px solid #1a1a1a; margin-bottom: 25px;">
             PENGUMUMAN: Mabar rutin jam 19.00 WIB • Gunakan Tag Klan [ZNT] • Tetap Solid dan No Toxic!
         </marquee>
         
         <div class="info-box">
             <h3> DATABASE KLAN</h3>
-            <p style="font-size: 13px; color: #999; margin: 0;">Sistem koordinasi internal ZENTRO. Portal mabar dan informasi anggota.</p>
+            <p style="font-size: 13px; color: #bbb;">Sistem koordinasi internal ZENTRO. Portal mabar dan informasi anggota.</p>
         </div>
 
         <div class="info-box">
@@ -320,7 +319,7 @@
 
         <div class="info-box">
             <h3> RULES</h3>
-            <ul style="color: #888;">
+            <ul style="color: #aaa;">
                 <li>• Respect each other</li>
                 <li>• No cheat / No toxic</li>
                 <li>• Active in group / Talk</li>
