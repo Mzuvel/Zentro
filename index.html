@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZENTRO - Ultra Dark RGB</title>
     <style>
-        /* LOADING AYAM LEWAT STYLE */
+        /* --- FITUR LOADING AYAM (WAJIB) --- */
         #loading-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -17,19 +17,16 @@
             align-items: center;
             overflow: hidden;
         }
-
         .chicken-walk {
             font-size: 40px;
             position: absolute;
             bottom: 45%;
             animation: walk 3s infinite linear;
         }
-
         @keyframes walk {
             0% { left: -60px; }
             100% { left: 100%; }
         }
-
         .loading-text {
             color: #00e5ff;
             font-family: 'Segoe UI', sans-serif;
@@ -37,12 +34,10 @@
             letter-spacing: 2px;
             font-weight: bold;
         }
-
         .dots::after {
             content: '';
             animation: dots 1.5s infinite;
         }
-
         @keyframes dots {
             0% { content: ''; }
             33% { content: '.'; }
@@ -50,21 +45,19 @@
             100% { content: '...'; }
         }
 
-        /* ANIMASI & STYLE ASLI */
+        /* --- STYLE ASLI LO (JANGAN DIUBAH) --- */
         @keyframes warnaWarni {
             0% { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; border-color: #00e5ff; }
             33% { color: #ff00ff; text-shadow: 0 0 20px #ff00ff; border-color: #ff00ff; }
             66% { color: #00ff00; text-shadow: 0 0 20px #00ff00; border-color: #00ff00; }
             100% { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; border-color: #00e5ff; }
         }
-
         @keyframes borderWarni {
             0% { border-left-color: #00e5ff; }
             33% { border-left-color: #ff00ff; }
             66% { border-left-color: #00ff00; }
             100% { border-left-color: #00e5ff; }
         }
-
         @keyframes glitch {
             0% { text-shadow: 2px 0 #ff00ff, -2px 0 #00e5ff; transform: translate(0); }
             20% { text-shadow: -2px 0 #ff00ff, 2px 0 #00e5ff; transform: translate(-1px, 1px); }
@@ -73,7 +66,6 @@
             80% { text-shadow: 2px 0 #ff00ff, -2px 0 #00e5ff; transform: translate(1px, -1px); }
             100% { text-shadow: -2px 0 #ff00ff, 2px 0 #00e5ff; transform: translate(0); }
         }
-
         @keyframes floating {
             0% { transform: translateY(0px) translateX(0px); opacity: 0; }
             50% { opacity: 0.5; }
@@ -86,12 +78,11 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.4); 
             z-index: -1;
-            transition: background 1s ease;
+            transition: background 1s ease; /* IDE 11 */
         }
-
         body {
             background-image: url('https://images.alphacoders.com/102/1023795.jpg'); 
-            background-size: 110% 110%;
+            background-size: 110% 110%; /* IDE 8: Parallax size */
             background-position: center;
             background-attachment: fixed;
             background-color: #000;
@@ -103,7 +94,7 @@
             margin: 0;
             padding: 20px;
             overflow-x: hidden;
-            transition: filter 1s ease;
+            transition: filter 1s ease; /* IDE 11 */
         }
 
         .particles {
@@ -120,7 +111,6 @@
             border-radius: 50%;
             animation: floating 10s infinite linear;
         }
-
         .container {
             width: 100%;
             max-width: 450px;
@@ -129,7 +119,7 @@
             z-index: 1;
         }
 
-        /* Zentro Clock Style */
+        /* IDE 7: Clock Style */
         #zentro-clock {
             font-family: monospace;
             color: #00ff00;
@@ -151,7 +141,6 @@
             position: relative;
             cursor: pointer;
         }
-
         .sub-title {
             text-align: center;
             font-size: 11px;
@@ -160,7 +149,6 @@
             text-transform: uppercase;
             letter-spacing: 2px;
         }
-
         .status-bar {
             display: flex;
             align-items: center;
@@ -173,14 +161,7 @@
             border: 1px solid rgba(0, 255, 0, 0.3);
             backdrop-filter: blur(10px);
         }
-        .dot {
-            width: 8px;
-            height: 8px;
-            background: #00ff00;
-            border-radius: 50%;
-            box-shadow: 0 0 10px #00ff00;
-        }
-
+        .dot { width: 8px; height: 8px; background: #00ff00; border-radius: 50%; box-shadow: 0 0 10px #00ff00; }
         .info-box {
             background: rgba(10, 10, 10, 0.85);
             border-radius: 12px;
@@ -191,117 +172,24 @@
             animation: borderWarni 20s infinite linear;
             backdrop-filter: blur(8px);
         }
-
-        .info-box h3 {
-            margin: 0 0 10px 0;
-            font-size: 13px;
-            animation: warnaWarni 20s infinite linear;
-            text-transform: uppercase;
-        }
-
-        .power-bar {
-            width: 100%;
-            background: #222;
-            height: 6px;
-            border-radius: 10px;
-            margin-top: 5px;
-            margin-bottom: 10px;
-            overflow: hidden;
-        }
-        .power-fill {
-            height: 100%;
-            background: #00e5ff;
-            box-shadow: 0 0 10px #00e5ff;
-        }
-
+        .info-box h3 { margin: 0 0 10px 0; font-size: 13px; animation: warnaWarni 20s infinite linear; text-transform: uppercase; }
+        .power-bar { width: 100%; background: #222; height: 6px; border-radius: 10px; margin-top: 5px; margin-bottom: 10px; overflow: hidden; }
+        .power-fill { height: 100%; background: #00e5ff; box-shadow: 0 0 10px #00e5ff; }
         ul { list-style: none; padding: 0; margin: 0; font-size: 13px; }
-        li {
-            padding: 10px 0;
-            border-bottom: 1px solid #1a1a1a;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        li { padding: 10px 0; border-bottom: 1px solid #1a1a1a; display: flex; justify-content: space-between; align-items: center; }
         li:last-child { border: none; }
+        .rank-tag { font-size: 10px; background: #222; padding: 2px 6px; border-radius: 4px; color: #ffcc00; border: 1px solid #444; display: flex; align-items: center; gap: 4px; }
+        .role-tag { font-size: 9px; color: #00e5ff; border: 1px solid #00e5ff; padding: 1px 4px; border-radius: 3px; margin-left: 5px; text-transform: uppercase; }
+
+        .btn-group { margin-top: 10px; display: flex; flex-direction: column; gap: 15px; }
+        .btn { animation: warnaWarni 20s infinite linear; background: rgba(0, 0, 0, 0.8); color: #ffffff; text-decoration: none; padding: 14px; border-radius: 8px; font-weight: bold; font-size: 14px; text-align: center; border: 1px solid #00e5ff; backdrop-filter: blur(5px); }
+        .btn-ml { background: #ffcc00 !important; color: #000 !important; border: none !important; animation: none !important; }
+
+        #secret-board { display: none; background: rgba(255, 255, 255, 0.05); border: 1px solid #00e5ff; color: #ffffff; padding: 15px; margin-top: 20px; border-radius: 12px; font-size: 12px; text-align: center; backdrop-filter: blur(10px); }
+        .footer { margin-top: 30px; text-align: center; font-size: 11px; color: #ffffff; font-weight: bold; text-shadow: 2px 2px 8px #000; }
         
-        .rank-tag {
-            font-size: 10px;
-            background: #222;
-            padding: 2px 6px;
-            border-radius: 4px;
-            color: #ffcc00;
-            border: 1px solid #444;
-            display: flex;
-            align-items: center;
-            gap: 4px;
-        }
-
-        .role-tag {
-            font-size: 9px;
-            color: #00e5ff;
-            border: 1px solid #00e5ff;
-            padding: 1px 4px;
-            border-radius: 3px;
-            margin-left: 5px;
-            text-transform: uppercase;
-        }
-
-        .btn-group {
-            margin-top: 10px;
-            display: flex;
-            flex-direction: column;
-            gap: 15px;
-        }
-        .btn {
-            animation: warnaWarni 20s infinite linear;
-            background: rgba(0, 0, 0, 0.8);
-            color: #ffffff;
-            text-decoration: none;
-            padding: 14px;
-            border-radius: 8px;
-            font-weight: bold;
-            font-size: 14px;
-            text-align: center;
-            border: 1px solid #00e5ff;
-            backdrop-filter: blur(5px);
-        }
-        .btn-ml {
-            background: #ffcc00 !important;
-            color: #000 !important;
-            border: none !important;
-            animation: none !important;
-        }
-
-        #secret-board {
-            display: none;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid #00e5ff;
-            color: #ffffff;
-            padding: 15px;
-            margin-top: 20px;
-            border-radius: 12px;
-            font-size: 12px;
-            text-align: center;
-            backdrop-filter: blur(10px);
-        }
-
-        .footer {
-            margin-top: 30px;
-            text-align: center;
-            font-size: 11px;
-            color: #ffffff;
-            font-weight: bold;
-            text-shadow: 2px 2px 8px #000;
-        }
-
-        .version-history {
-            text-align: center;
-            font-size: 9px;
-            color: #444;
-            margin-top: 10px;
-            letter-spacing: 1px;
-            text-transform: uppercase;
-        }
+        /* IDE 15: History */
+        .version-history { text-align: center; font-size: 9px; color: #444; margin-top: 10px; letter-spacing: 1px; text-transform: uppercase; }
     </style>
 </head>
 <body>
@@ -387,8 +275,8 @@
 
         <div class="info-box">
             <h3> BG MUSIC PLAYLIST</h3>
-            <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div id="songTitle" style="font-size: 11px; color: #ff0000; text-align: center; font-weight: bold;">BELUM ADA MUSIK TERSEDIA</div>
+            <div style="text-align: center; padding: 10px;">
+                <span style="font-size: 12px; color: #ff0000; font-weight: bold;">BELUM ADA MUSIK TERSEDIA</span>
             </div>
         </div>
 
@@ -414,69 +302,60 @@
         </div>
 
         <div class="footer">SYSTEM MAINTAINED BY MZUVEL • 2026</div>
-        
+
         <div class="version-history">v1.0 (Base) • v2.0 (RGB) • v3.0 (Infrastructure) • v4.0 (Parallax & Logic)</div>
     </div>
 
     <script>
-        // LOADING & INITIAL LOGIC
         window.onload = function() {
-            // Sembunyikan loading setelah 4 detik
             setTimeout(() => {
-                const loader = document.getElementById('loading-overlay');
-                if(loader) loader.style.display = 'none';
+                document.getElementById('loading-overlay').style.display = 'none';
             }, 4000); 
-            
             updateGreeting();
-            updateClock();
+            updateClock(); // Fitur 7
             checkTimeMode(); // Fitur 11
         };
 
-        // Fitur 8: Parallax Effect
+        // Fitur 8: Parallax
         document.addEventListener("mousemove", function(e) {
-            const x = (window.innerWidth / 2 - e.pageX) / 30;
-            const y = (window.innerHeight / 2 - e.pageY) / 30;
+            const x = (window.innerWidth / 2 - e.pageX) / 35;
+            const y = (window.innerHeight / 2 - e.pageY) / 35;
             document.body.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
         });
 
-        // Fitur 7: Clock Logic
+        // Fitur 7: Clock
         function updateClock() {
             const now = new Date();
-            const timeString = now.toLocaleTimeString('en-GB', { hour12: false });
-            const clockEl = document.getElementById('zentro-clock');
-            if(clockEl) clockEl.innerText = `SERVER TIME: ${timeString} WIB`;
+            const timeStr = now.toLocaleTimeString('en-GB', { hour12: false });
+            document.getElementById('zentro-clock').innerText = `SERVER TIME: ${timeStr} WIB`;
             setTimeout(updateClock, 1000);
         }
 
-        // Fitur 11: Auto Dark/Light Mode
+        // Fitur 11: Auto Dark/Light
         function checkTimeMode() {
-            const hour = new Date().getHours();
-            if (hour >= 18 || hour < 6) {
-                document.body.style.filter = "brightness(0.8) contrast(1.2)";
+            const hr = new Date().getHours();
+            if (hr >= 18 || hr < 6) {
+                document.body.style.filter = "brightness(0.8) contrast(1.1)";
             } else {
                 document.body.style.filter = "brightness(1) contrast(1)";
             }
         }
 
-        // GREETING LOGIC
         function updateGreeting() {
             const hour = new Date().getHours();
             const greetElement = document.getElementById('time-greeting');
-            if (greetElement) {
-                if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI, LEGEND!";
-                else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG, LEGEND!";
-                else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE, LEGEND!";
-                else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
-            }
+            if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI, LEGEND!";
+            else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG, LEGEND!";
+            else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE, LEGEND!";
+            else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
         }
 
-        // SECRET MESSAGE LOGIC
         let clickCount = 0;
         function secretTrigger() {
             clickCount++;
             if (clickCount === 3) {
                 const sb = document.getElementById('secret-board');
-                if(sb) sb.style.display = (sb.style.display === 'block') ? 'none' : 'block';
+                sb.style.display = (sb.style.display === 'block') ? 'none' : 'block';
                 clickCount = 0;
             }
         }
