@@ -86,11 +86,12 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.4); 
             z-index: -1;
+            transition: background 1s ease; /* IDE 11 */
         }
 
         body {
             background-image: url('https://images.alphacoders.com/102/1023795.jpg'); 
-            background-size: cover;
+            background-size: 110% 110%; /* IDE 8: Ukuran lebih besar buat parallax */
             background-position: center;
             background-attachment: fixed;
             background-color: #000;
@@ -102,6 +103,7 @@
             margin: 0;
             padding: 20px;
             overflow-x: hidden;
+            transition: filter 1s ease; /* IDE 11 */
         }
 
         .particles {
@@ -272,7 +274,7 @@
         }
 
         .footer {
-            margin-top: 50px;
+            margin-top: 30px;
             text-align: center;
             font-size: 11px;
             color: #ffffff;
@@ -280,11 +282,27 @@
             text-shadow: 2px 2px 8px #000;
         }
 
-        audio {
-            width: 100%;
-            height: 30px;
-            filter: invert(1);
-            opacity: 0.7;
+        /* IDE 15: Version History */
+        .version-history {
+            text-align: center;
+            font-size: 9px;
+            color: #444;
+            margin-top: 10px;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        /* IDE 7: Clock Style */
+        #zentro-clock {
+            font-family: monospace;
+            color: #00ff00;
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #1a1a1a;
         }
     </style>
 </head>
@@ -304,6 +322,8 @@
     </div>
 
     <div class="container">
+        <div id="zentro-clock">SERVER TIME: 00:00:00 WIB</div>
+
         <h1 id="main-logo" onclick="secretTrigger()">ZENTRO</h1>
         <div class="sub-title">Dark RGB Infrastructure v4.0</div>
 
@@ -382,14 +402,7 @@
         <div class="info-box">
             <h3> BG MUSIC PLAYLIST</h3>
             <div style="display: flex; flex-direction: column; gap: 8px;">
-                <div id="songTitle" style="font-size: 11px; color: #00e5ff; text-align: center; font-weight: bold;">Now Playing: Cuma Mantan</div>
-                <audio id="myAudio" controls>
-                    <source id="audioSource" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
-                </audio>
-                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 5px;">
-                    <button style="background: rgba(255,255,255,0.1); border: 1px solid #00e5ff; color: white; font-size: 10px; padding: 4px 10px; border-radius: 4px; cursor: pointer;" onclick="prevTrack()">PREV</button>
-                    <button style="background: rgba(255,255,255,0.1); border: 1px solid #00e5ff; color: white; font-size: 10px; padding: 4px 10px; border-radius: 4px; cursor: pointer;" onclick="nextTrack()">NEXT TRACK</button>
-                </div>
+                <div id="songTitle" style="font-size: 11px; color: #ff0000; text-align: center; font-weight: bold;">BELUM ADA MUSIK TERSEDIA</div>
             </div>
         </div>
 
@@ -417,6 +430,10 @@
         <div class="footer">
             SYSTEM MAINTAINED BY MZUVEL • 2026
         </div>
+        
+        <div class="version-history">
+            v1.0 (Base) • v2.0 (RGB) • v3.0 (Infrastructure) • v4.0 (Parallax & Logic)
+        </div>
     </div>
 
     <script>
@@ -426,7 +443,36 @@
                 document.getElementById('loading-overlay').style.display = 'none';
             }, 4000); 
             updateGreeting();
+            updateClock();
+            checkTimeMode(); // IDE 11
         };
+
+        // IDE 8: Parallax Effect
+        document.addEventListener("mousemove", function(e) {
+            const x = (window.innerWidth / 2 - e.pageX) / 30;
+            const y = (window.innerHeight / 2 - e.pageY) / 30;
+            document.body.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
+        });
+
+        // IDE 7: Zentro Clock Logic
+        function updateClock() {
+            const now = new Date();
+            const timeString = now.toLocaleTimeString('en-GB', { hour12: false });
+            document.getElementById('zentro-clock').innerText = `SERVER TIME: ${timeString} WIB`;
+            setTimeout(updateClock, 1000);
+        }
+
+        // IDE 11: Auto Dark/Light Mode
+        function checkTimeMode() {
+            const hour = new Date().getHours();
+            if (hour >= 18 || hour < 6) {
+                // Night Mode
+                document.body.style.filter = "brightness(0.8) contrast(1.2)";
+            } else {
+                // Day Mode
+                document.body.style.filter = "brightness(1) contrast(1)";
+            }
+        }
 
         // GREETING LOGIC
         function updateGreeting() {
@@ -438,7 +484,7 @@
             else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
         }
 
-        // SECRET MESSAGE LOGIC (3x KLIK LOGO)
+        // SECRET MESSAGE LOGIC
         let clickCount = 0;
         function secretTrigger() {
             clickCount++;
@@ -448,42 +494,6 @@
                 clickCount = 0;
             }
         }
-
-        // MUSIC LOGIC
-        const songs = [
-            { title: "Cuma Mantan", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
-            { title: "Wena Wena x Choris Sonia", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
-            { title: "Viral Remix 2024", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
-            { title: "DJ Mabar Zentro", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
-            { title: "Phonk Drift MLBB", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" }
-        ];
-
-        let currentSongIndex = 0;
-        const audio = document.getElementById('myAudio');
-        const source = document.getElementById('audioSource');
-        const titleDisplay = document.getElementById('songTitle');
-
-        function loadSong(index) {
-            currentSongIndex = index;
-            source.src = songs[currentSongIndex].url;
-            titleDisplay.innerText = "Now Playing: " + songs[currentSongIndex].title;
-            audio.load();
-            audio.play().catch(e => console.log("Play manual."));
-        }
-
-        function nextTrack() {
-            currentSongIndex = (currentSongIndex + 1) % songs.length;
-            loadSong(currentSongIndex);
-        }
-
-        function prevTrack() {
-            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
-            loadSong(currentSongIndex);
-        }
-
-        audio.onended = function() {
-            nextTrack();
-        };
     </script>
 
 </body>
