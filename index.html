@@ -86,12 +86,12 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.4); 
             z-index: -1;
-            transition: background 1s ease; /* IDE 11 */
+            transition: background 1s ease;
         }
 
         body {
             background-image: url('https://images.alphacoders.com/102/1023795.jpg'); 
-            background-size: 110% 110%; /* IDE 8: Ukuran lebih besar buat parallax */
+            background-size: 110% 110%;
             background-position: center;
             background-attachment: fixed;
             background-color: #000;
@@ -103,7 +103,7 @@
             margin: 0;
             padding: 20px;
             overflow-x: hidden;
-            transition: filter 1s ease; /* IDE 11 */
+            transition: filter 1s ease;
         }
 
         .particles {
@@ -127,6 +127,19 @@
             background: transparent;
             position: relative;
             z-index: 1;
+        }
+
+        /* Zentro Clock Style */
+        #zentro-clock {
+            font-family: monospace;
+            color: #00ff00;
+            font-size: 12px;
+            text-align: center;
+            margin-bottom: 15px;
+            background: rgba(0,0,0,0.5);
+            padding: 5px;
+            border-radius: 5px;
+            border: 1px solid #1a1a1a;
         }
 
         h1 {
@@ -259,7 +272,6 @@
             animation: none !important;
         }
 
-        /* SECRET BOARD STYLE */
         #secret-board {
             display: none;
             background: rgba(255, 255, 255, 0.05);
@@ -282,7 +294,6 @@
             text-shadow: 2px 2px 8px #000;
         }
 
-        /* IDE 15: Version History */
         .version-history {
             text-align: center;
             font-size: 9px;
@@ -290,19 +301,6 @@
             margin-top: 10px;
             letter-spacing: 1px;
             text-transform: uppercase;
-        }
-
-        /* IDE 7: Clock Style */
-        #zentro-clock {
-            font-family: monospace;
-            color: #00ff00;
-            font-size: 12px;
-            text-align: center;
-            margin-bottom: 15px;
-            background: rgba(0,0,0,0.5);
-            padding: 5px;
-            border-radius: 5px;
-            border: 1px solid #1a1a1a;
         }
     </style>
 </head>
@@ -344,14 +342,11 @@
         <div class="info-box">
             <h3> CLAN POWER LEVEL</h3>
             <div style="display: flex; justify-content: space-between; font-size: 11px; color: #888;">
-                <span>WIN RATE KLAN</span>
-                <span>78%</span>
+                <span>WIN RATE KLAN</span> <span>78%</span>
             </div>
             <div class="power-bar"><div class="power-fill" style="width: 78%;"></div></div>
-            
             <div style="display: flex; justify-content: space-between; font-size: 11px; color: #888;">
-                <span>ACTIVITY</span>
-                <span>98%</span>
+                <span>ACTIVITY</span> <span>98%</span>
             </div>
             <div class="power-bar"><div class="power-fill" style="width: 98%; background: #00ff00; box-shadow: 0 0 10px #00ff00;"></div></div>
         </div>
@@ -368,18 +363,9 @@
         <div class="info-box">
             <h3> TOP SQUAD MEMBERS</h3>
             <ul>
-                <li>
-                    <div>1. Mzuvel <span class="role-tag">Core/Jungler</span></div> 
-                    <span class="rank-tag">🔥 MYTHIC IMMORTAL</span>
-                </li>
-                <li>
-                    <div>2. Member 2 <span class="role-tag">Roamer</span></div> 
-                    <span class="rank-tag">🌟 MYTHIC</span>
-                </li>
-                <li>
-                    <div>3. Member 3 <span class="role-tag">Exp Lane</span></div> 
-                    <span class="rank-tag">🌟 MYTHIC</span>
-                </li>
+                <li><div>1. Mzuvel <span class="role-tag">Core/Jungler</span></div> <span class="rank-tag">🔥 MYTHIC IMMORTAL</span></li>
+                <li><div>2. Member 2 <span class="role-tag">Roamer</span></div> <span class="rank-tag">🌟 MYTHIC</span></li>
+                <li><div>3. Member 3 <span class="role-tag">Exp Lane</span></div> <span class="rank-tag">🌟 MYTHIC</span></li>
             </ul>
         </div>
 
@@ -427,49 +413,47 @@
             "Keep it solid, Legend!"
         </div>
 
-        <div class="footer">
-            SYSTEM MAINTAINED BY MZUVEL • 2026
-        </div>
+        <div class="footer">SYSTEM MAINTAINED BY MZUVEL • 2026</div>
         
-        <div class="version-history">
-            v1.0 (Base) • v2.0 (RGB) • v3.0 (Infrastructure) • v4.0 (Parallax & Logic)
-        </div>
+        <div class="version-history">v1.0 (Base) • v2.0 (RGB) • v3.0 (Infrastructure) • v4.0 (Parallax & Logic)</div>
     </div>
 
     <script>
-        // LOADING LOGIC
+        // LOADING & INITIAL LOGIC
         window.onload = function() {
+            // Sembunyikan loading setelah 4 detik
             setTimeout(() => {
-                document.getElementById('loading-overlay').style.display = 'none';
+                const loader = document.getElementById('loading-overlay');
+                if(loader) loader.style.display = 'none';
             }, 4000); 
+            
             updateGreeting();
             updateClock();
-            checkTimeMode(); // IDE 11
+            checkTimeMode(); // Fitur 11
         };
 
-        // IDE 8: Parallax Effect
+        // Fitur 8: Parallax Effect
         document.addEventListener("mousemove", function(e) {
             const x = (window.innerWidth / 2 - e.pageX) / 30;
             const y = (window.innerHeight / 2 - e.pageY) / 30;
             document.body.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
         });
 
-        // IDE 7: Zentro Clock Logic
+        // Fitur 7: Clock Logic
         function updateClock() {
             const now = new Date();
             const timeString = now.toLocaleTimeString('en-GB', { hour12: false });
-            document.getElementById('zentro-clock').innerText = `SERVER TIME: ${timeString} WIB`;
+            const clockEl = document.getElementById('zentro-clock');
+            if(clockEl) clockEl.innerText = `SERVER TIME: ${timeString} WIB`;
             setTimeout(updateClock, 1000);
         }
 
-        // IDE 11: Auto Dark/Light Mode
+        // Fitur 11: Auto Dark/Light Mode
         function checkTimeMode() {
             const hour = new Date().getHours();
             if (hour >= 18 || hour < 6) {
-                // Night Mode
                 document.body.style.filter = "brightness(0.8) contrast(1.2)";
             } else {
-                // Day Mode
                 document.body.style.filter = "brightness(1) contrast(1)";
             }
         }
@@ -478,10 +462,12 @@
         function updateGreeting() {
             const hour = new Date().getHours();
             const greetElement = document.getElementById('time-greeting');
-            if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI, LEGEND!";
-            else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG, LEGEND!";
-            else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE, LEGEND!";
-            else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
+            if (greetElement) {
+                if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI, LEGEND!";
+                else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG, LEGEND!";
+                else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE, LEGEND!";
+                else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
+            }
         }
 
         // SECRET MESSAGE LOGIC
@@ -490,11 +476,10 @@
             clickCount++;
             if (clickCount === 3) {
                 const sb = document.getElementById('secret-board');
-                sb.style.display = (sb.style.display === 'block') ? 'none' : 'block';
+                if(sb) sb.style.display = (sb.style.display === 'block') ? 'none' : 'block';
                 clickCount = 0;
             }
         }
     </script>
-
 </body>
 </html>
