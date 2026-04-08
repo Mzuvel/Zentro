@@ -5,26 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZENTRO - Ultra Dark RGB</title>
     <style>
-        /* --- FITUR LOADING SCREEN (AYAM DIHAPUS) --- */
+        /* --- LOADING SCREEN FIXED --- */
         #loading-overlay {
             position: fixed;
-            top: 0; left: 0; width: 100%; height: 100%;
+            top: 0; left: 0; 
+            width: 100%; height: 100%;
             background: #000;
-            z-index: 9999;
+            z-index: 10000; /* Paling atas */
             display: flex;
-            flex-direction: column;
             justify-content: center;
             align-items: center;
-            overflow: hidden;
+            transition: opacity 0.5s ease; /* Biar transisi ilang halus */
         }
 
         .loading-text {
             color: #00e5ff;
             font-family: 'Segoe UI', sans-serif;
-            font-size: 20px; /* Sedikit diperbesar biar jelas */
-            letter-spacing: 3px;
+            font-size: 24px;
+            letter-spacing: 5px;
             font-weight: bold;
-            text-transform: uppercase;
+            text-shadow: 0 0 10px #00e5ff;
         }
 
         .dots::after {
@@ -39,7 +39,7 @@
             100% { content: '...'; }
         }
 
-        /* --- STYLE ASLI LO (JANGAN DIUBAH) --- */
+        /* --- STYLE ASLI --- */
         @keyframes warnaWarni {
             0% { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; border-color: #00e5ff; }
             33% { color: #ff00ff; text-shadow: 0 0 20px #ff00ff; border-color: #ff00ff; }
@@ -72,11 +72,10 @@
             top: 0; left: 0; width: 100%; height: 100%;
             background: rgba(0, 0, 0, 0.4); 
             z-index: -1;
-            transition: background 1s ease; /* IDE 11 */
         }
         body {
             background-image: url('https://images.alphacoders.com/102/1023795.jpg'); 
-            background-size: 110% 110%; /* IDE 8: Parallax size */
+            background-size: 110% 110%; 
             background-position: center;
             background-attachment: fixed;
             background-color: #000;
@@ -88,7 +87,7 @@
             margin: 0;
             padding: 20px;
             overflow-x: hidden;
-            transition: filter 1s ease; /* IDE 11 */
+            transition: filter 1s ease;
         }
 
         .particles {
@@ -113,7 +112,6 @@
             z-index: 1;
         }
 
-        /* IDE 7: Clock Style */
         #zentro-clock {
             font-family: monospace;
             color: #00ff00;
@@ -181,8 +179,6 @@
 
         #secret-board { display: none; background: rgba(255, 255, 255, 0.05); border: 1px solid #00e5ff; color: #ffffff; padding: 15px; margin-top: 20px; border-radius: 12px; font-size: 12px; text-align: center; backdrop-filter: blur(10px); }
         .footer { margin-top: 30px; text-align: center; font-size: 11px; color: #ffffff; font-weight: bold; text-shadow: 2px 2px 8px #000; }
-        
-        /* IDE 15: History */
         .version-history { text-align: center; font-size: 9px; color: #444; margin-top: 10px; letter-spacing: 1px; text-transform: uppercase; }
     </style>
 </head>
@@ -226,10 +222,6 @@
                 <span>WIN RATE KLAN</span> <span>78%</span>
             </div>
             <div class="power-bar"><div class="power-fill" style="width: 78%;"></div></div>
-            <div style="display: flex; justify-content: space-between; font-size: 11px; color: #888;">
-                <span>ACTIVITY</span> <span>98%</span>
-            </div>
-            <div class="power-bar"><div class="power-fill" style="width: 98%; background: #00ff00; box-shadow: 0 0 10px #00ff00;"></div></div>
         </div>
 
         <div class="info-box">
@@ -237,32 +229,6 @@
             <ul>
                 <li><span>Klan ID</span> <span>ZENTRO-OFFICIAL</span></li>
                 <li><span>Target Rank</span> <span style="color: #ffcc00;">Mythic Immortal</span></li>
-                <li><span>Server</span> <span>Indonesia</span></li>
-            </ul>
-        </div>
-
-        <div class="info-box">
-            <h3> TOP SQUAD MEMBERS</h3>
-            <ul>
-                <li><div>1. Mzuvel <span class="role-tag">Core/Jungler</span></div> <span class="rank-tag">🔥 MYTHIC IMMORTAL</span></li>
-                <li><div>2. Member 2 <span class="role-tag">Roamer</span></div> <span class="rank-tag">🌟 MYTHIC</span></li>
-                <li><div>3. Member 3 <span class="role-tag">Exp Lane</span></div> <span class="rank-tag">🌟 MYTHIC</span></li>
-            </ul>
-        </div>
-
-        <div class="info-box">
-            <h3> WALL OF FAME</h3>
-            <ul>
-                <li><span>Mzuvel</span> <span style="color: #00e5ff;">Fanny / Ling</span></li>
-                <li><span>Admin</span> <span style="color: #00e5ff;">Tigreal / Atlas</span></li>
-            </ul>
-        </div>
-
-        <div class="info-box">
-            <h3> OPERATIONAL TIME</h3>
-            <ul>
-                <li><span>Mabar Night</span> <span>19.00 - End</span></li>
-                <li><span>Weekend Push</span> <span>Full Time</span></li>
             </ul>
         </div>
 
@@ -273,80 +239,66 @@
             </div>
         </div>
 
-        <div class="info-box">
-            <h3> RULES</h3>
-            <ul style="color: #aaa;">
-                <li>• Respect each other</li>
-                <li>• No cheat / No toxic</li>
-                <li>• Active in group / Talk</li>
-            </ul>
-        </div>
-
         <div class="btn-group">
-            <a href="mobilelegends://" class="btn btn-ml">LAUNCHE GAME (MLBB)</a>
-            <a href="https://play.google.com/store/apps/details?id=com.mobile.legends" class="btn">DOWNLOAD DI PLAY STORE</a>
+            <a href="mobilelegends://" class="btn btn-ml">LAUNCH GAME (MLBB)</a>
             <a href="#" class="btn">JOIN WHATSAPP GROUP</a>
         </div>
 
         <div id="secret-board">
             <span style="color: #00e5ff; font-weight: bold;">[INTERNAL ACCESS]</span><br><br>
-            Password Lobby: <span style="color: #ffcc00;">ZENTRO-V4</span><br>
-            "Keep it solid, Legend!"
+            Password Lobby: <span style="color: #ffcc00;">ZENTRO-V4</span>
         </div>
 
         <div class="footer">SYSTEM MAINTAINED BY MZUVEL • 2026</div>
-
-        <div class="version-history">v1.0 (Base) • v2.0 (RGB) • v3.0 (Infrastructure) • v4.0 (Parallax & Logic)</div>
+        <div class="version-history">v1.0 • v2.0 • v3.0 • v4.0 (Parallax & Logic)</div>
     </div>
 
     <script>
+        // SCRIPT LOADING FIXED (PAKAI TIMEOUT JELAS)
         window.onload = function() {
-            // Sembunyikan loading setelah 4 detik
-            setTimeout(() => {
-                const loader = document.getElementById('loading-overlay');
-                if (loader) loader.style.display = 'none';
-            }, 4000); 
+            const loader = document.getElementById('loading-overlay');
             
+            // Tunggu 4 detik (4000ms) baru ilang
+            setTimeout(() => {
+                loader.style.opacity = '0';
+                setTimeout(() => {
+                    loader.style.display = 'none';
+                }, 500); // Waktu transisi opacity
+            }, 4000); 
+
             updateGreeting();
-            updateClock(); // Fitur 7
-            checkTimeMode(); // Fitur 11
+            updateClock();
+            checkTimeMode();
         };
 
-        // Fitur 8: Parallax
+        // PARALLAX
         document.addEventListener("mousemove", function(e) {
             const x = (window.innerWidth / 2 - e.pageX) / 35;
             const y = (window.innerHeight / 2 - e.pageY) / 35;
             document.body.style.backgroundPosition = `calc(50% + ${x}px) calc(50% + ${y}px)`;
         });
 
-        // Fitur 7: Clock
+        // CLOCK
         function updateClock() {
             const now = new Date();
             const timeStr = now.toLocaleTimeString('en-GB', { hour12: false });
-            const clockEl = document.getElementById('zentro-clock');
-            if (clockEl) clockEl.innerText = `SERVER TIME: ${timeStr} WIB`;
+            document.getElementById('zentro-clock').innerText = `SERVER TIME: ${timeStr} WIB`;
             setTimeout(updateClock, 1000);
         }
 
-        // Fitur 11: Auto Dark/Light
+        // AUTO MODE
         function checkTimeMode() {
             const hr = new Date().getHours();
-            if (hr >= 18 || hr < 6) {
-                document.body.style.filter = "brightness(0.8) contrast(1.1)";
-            } else {
-                document.body.style.filter = "brightness(1) contrast(1)";
-            }
+            document.body.style.filter = (hr >= 18 || hr < 6) ? "brightness(0.8) contrast(1.1)" : "brightness(1) contrast(1)";
         }
 
         function updateGreeting() {
             const hour = new Date().getHours();
             const greetElement = document.getElementById('time-greeting');
-            if (greetElement) {
-                if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI, LEGEND!";
-                else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG, LEGEND!";
-                else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE, LEGEND!";
-                else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
-            }
+            if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI!";
+            else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG!";
+            else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE!";
+            else greetElement.innerText = "STATUS: WAKTUNYA PUSH RANK!";
         }
 
         let clickCount = 0;
@@ -354,7 +306,7 @@
             clickCount++;
             if (clickCount === 3) {
                 const sb = document.getElementById('secret-board');
-                if (sb) sb.style.display = (sb.style.display === 'block') ? 'none' : 'block';
+                sb.style.display = (sb.style.display === 'block') ? 'none' : 'block';
                 clickCount = 0;
             }
         }
