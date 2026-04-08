@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ZENTRO - Ultra Dark RGB</title>
     <style>
-        /* LOADING AYAM LEWAT */
+        /* LOADING AYAM LEWAT STYLE */
         #loading-overlay {
             position: fixed;
             top: 0; left: 0; width: 100%; height: 100%;
@@ -15,28 +15,34 @@
             flex-direction: column;
             justify-content: center;
             align-items: center;
+            overflow: hidden;
         }
+
         .chicken-walk {
-            font-size: 50px;
+            font-size: 40px;
             position: absolute;
             bottom: 45%;
             animation: walk 3s infinite linear;
         }
+
         @keyframes walk {
             0% { left: -60px; }
             100% { left: 100%; }
         }
+
         .loading-text {
             color: #00e5ff;
-            font-family: sans-serif;
-            margin-top: 100px;
-            font-weight: bold;
+            font-family: 'Segoe UI', sans-serif;
+            margin-top: 80px;
             letter-spacing: 2px;
+            font-weight: bold;
         }
+
         .dots::after {
             content: '';
             animation: dots 1.5s infinite;
         }
+
         @keyframes dots {
             0% { content: ''; }
             33% { content: '.'; }
@@ -44,19 +50,21 @@
             100% { content: '...'; }
         }
 
-        /* STYLE ASLI LO */
+        /* ANIMASI & STYLE ASLI */
         @keyframes warnaWarni {
             0% { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; border-color: #00e5ff; }
             33% { color: #ff00ff; text-shadow: 0 0 20px #ff00ff; border-color: #ff00ff; }
             66% { color: #00ff00; text-shadow: 0 0 20px #00ff00; border-color: #00ff00; }
             100% { color: #00e5ff; text-shadow: 0 0 20px #00e5ff; border-color: #00e5ff; }
         }
+
         @keyframes borderWarni {
             0% { border-left-color: #00e5ff; }
             33% { border-left-color: #ff00ff; }
             66% { border-left-color: #00ff00; }
             100% { border-left-color: #00e5ff; }
         }
+
         @keyframes glitch {
             0% { text-shadow: 2px 0 #ff00ff, -2px 0 #00e5ff; transform: translate(0); }
             20% { text-shadow: -2px 0 #ff00ff, 2px 0 #00e5ff; transform: translate(-1px, 1px); }
@@ -65,6 +73,7 @@
             80% { text-shadow: 2px 0 #ff00ff, -2px 0 #00e5ff; transform: translate(1px, -1px); }
             100% { text-shadow: -2px 0 #ff00ff, 2px 0 #00e5ff; transform: translate(0); }
         }
+
         @keyframes floating {
             0% { transform: translateY(0px) translateX(0px); opacity: 0; }
             50% { opacity: 0.5; }
@@ -78,6 +87,7 @@
             background: rgba(0, 0, 0, 0.4); 
             z-index: -1;
         }
+
         body {
             background-image: url('https://images.alphacoders.com/102/1023795.jpg'); 
             background-size: cover;
@@ -149,7 +159,8 @@
             backdrop-filter: blur(10px);
         }
         .dot {
-            width: 8px; height: 8px;
+            width: 8px;
+            height: 8px;
             background: #00ff00;
             border-radius: 50%;
             box-shadow: 0 0 10px #00ff00;
@@ -165,12 +176,14 @@
             animation: borderWarni 20s infinite linear;
             backdrop-filter: blur(8px);
         }
+
         .info-box h3 {
             margin: 0 0 10px 0;
             font-size: 13px;
             animation: warnaWarni 20s infinite linear;
             text-transform: uppercase;
         }
+
         .power-bar {
             width: 100%;
             background: #222;
@@ -203,13 +216,18 @@
             border-radius: 4px;
             color: #ffcc00;
             border: 1px solid #444;
+            display: flex;
+            align-items: center;
+            gap: 4px;
         }
+
         .role-tag {
             font-size: 9px;
             color: #00e5ff;
             border: 1px solid #00e5ff;
             padding: 1px 4px;
             border-radius: 3px;
+            margin-left: 5px;
             text-transform: uppercase;
         }
 
@@ -220,6 +238,7 @@
             gap: 15px;
         }
         .btn {
+            animation: warnaWarni 20s infinite linear;
             background: rgba(0, 0, 0, 0.8);
             color: #ffffff;
             text-decoration: none;
@@ -229,24 +248,44 @@
             font-size: 14px;
             text-align: center;
             border: 1px solid #00e5ff;
+            backdrop-filter: blur(5px);
         }
-        .btn-ml { background: #ffcc00 !important; color: #000 !important; border: none !important; }
+        .btn-ml {
+            background: #ffcc00 !important;
+            color: #000 !important;
+            border: none !important;
+            animation: none !important;
+        }
 
-        /* SECRET MESSAGE STYLE */
+        /* SECRET BOARD STYLE */
         #secret-board {
             display: none;
-            background: rgba(10, 10, 10, 0.9);
-            border: 1px solid #ff00ff;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid #00e5ff;
             color: #ffffff;
             padding: 15px;
             margin-top: 20px;
             border-radius: 12px;
             font-size: 12px;
             text-align: center;
+            backdrop-filter: blur(10px);
         }
 
-        .footer { margin-top: 50px; text-align: center; font-size: 11px; font-weight: bold; }
-        audio { width: 100%; height: 30px; filter: invert(1); opacity: 0.7; }
+        .footer {
+            margin-top: 50px;
+            text-align: center;
+            font-size: 11px;
+            color: #ffffff;
+            font-weight: bold;
+            text-shadow: 2px 2px 8px #000;
+        }
+
+        audio {
+            width: 100%;
+            height: 30px;
+            filter: invert(1);
+            opacity: 0.7;
+        }
     </style>
 </head>
 <body>
@@ -270,7 +309,7 @@
 
         <div class="status-bar">
             <div class="dot"></div>
-            <span id="time-greeting" style="font-size: 10px; color: #00ff00; font-weight: bold;">SYSTEM ONLINE</span>
+            <span id="time-greeting" style="font-size: 10px; color: #00ff00; font-weight: bold; letter-spacing: 1px;">SYSTEM ONLINE</span>
         </div>
 
         <marquee style="font-size: 11px; color: #ffcc00; font-weight: bold; background: rgba(0,0,0,0.85); padding: 8px; border-radius: 8px; border: 1px solid #1a1a1a; margin-bottom: 25px;">
@@ -285,21 +324,58 @@
         <div class="info-box">
             <h3> CLAN POWER LEVEL</h3>
             <div style="display: flex; justify-content: space-between; font-size: 11px; color: #888;">
-                <span>WIN RATE KLAN</span> <span>78%</span>
+                <span>WIN RATE KLAN</span>
+                <span>78%</span>
             </div>
             <div class="power-bar"><div class="power-fill" style="width: 78%;"></div></div>
+            
             <div style="display: flex; justify-content: space-between; font-size: 11px; color: #888;">
-                <span>ACTIVITY</span> <span>98%</span>
+                <span>ACTIVITY</span>
+                <span>98%</span>
             </div>
             <div class="power-bar"><div class="power-fill" style="width: 98%; background: #00ff00; box-shadow: 0 0 10px #00ff00;"></div></div>
         </div>
 
         <div class="info-box">
+            <h3> MOBILE LEGENDS DATA</h3>
+            <ul>
+                <li><span>Klan ID</span> <span>ZENTRO-OFFICIAL</span></li>
+                <li><span>Target Rank</span> <span style="color: #ffcc00;">Mythic Immortal</span></li>
+                <li><span>Server</span> <span>Indonesia</span></li>
+            </ul>
+        </div>
+
+        <div class="info-box">
             <h3> TOP SQUAD MEMBERS</h3>
             <ul>
-                <li><div>1. Mzuvel <span class="role-tag">Core/Jungler</span></div> <span class="rank-tag">🔥 MYTHIC IMMORTAL</span></li>
-                <li><div>2. Member 2 <span class="role-tag">Roamer</span></div> <span class="rank-tag">🌟 MYTHIC</span></li>
-                <li><div>3. Member 3 <span class="role-tag">Exp Lane</span></div> <span class="rank-tag">🌟 MYTHIC</span></li>
+                <li>
+                    <div>1. Mzuvel <span class="role-tag">Core/Jungler</span></div> 
+                    <span class="rank-tag">🔥 MYTHIC IMMORTAL</span>
+                </li>
+                <li>
+                    <div>2. Member 2 <span class="role-tag">Roamer</span></div> 
+                    <span class="rank-tag">🌟 MYTHIC</span>
+                </li>
+                <li>
+                    <div>3. Member 3 <span class="role-tag">Exp Lane</span></div> 
+                    <span class="rank-tag">🌟 MYTHIC</span>
+                </li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3> WALL OF FAME</h3>
+            <ul>
+                <li><span>Mzuvel</span> <span style="color: #00e5ff;">Fanny / Ling</span></li>
+                <li><span>Admin</span> <span style="color: #00e5ff;">Tigreal / Atlas</span></li>
+            </ul>
+        </div>
+
+        <div class="info-box">
+            <h3> OPERATIONAL TIME</h3>
+            <ul>
+                <li><span>Mabar Night</span> <span>19.00 - End</span></li>
+                <li><span>Weekend Push</span> <span>Full Time</span></li>
             </ul>
         </div>
 
@@ -310,45 +386,59 @@
                 <audio id="myAudio" controls>
                     <source id="audioSource" src="https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" type="audio/mpeg">
                 </audio>
-                <div style="display: flex; justify-content: center; gap: 10px;">
-                    <button style="background: rgba(255,255,255,0.1); border: 1px solid #00e5ff; color: white; padding: 4px 10px; border-radius: 4px;" onclick="prevTrack()">PREV</button>
-                    <button style="background: rgba(255,255,255,0.1); border: 1px solid #00e5ff; color: white; padding: 4px 10px; border-radius: 4px;" onclick="nextTrack()">NEXT</button>
+                <div style="display: flex; justify-content: center; gap: 10px; margin-top: 5px;">
+                    <button style="background: rgba(255,255,255,0.1); border: 1px solid #00e5ff; color: white; font-size: 10px; padding: 4px 10px; border-radius: 4px; cursor: pointer;" onclick="prevTrack()">PREV</button>
+                    <button style="background: rgba(255,255,255,0.1); border: 1px solid #00e5ff; color: white; font-size: 10px; padding: 4px 10px; border-radius: 4px; cursor: pointer;" onclick="nextTrack()">NEXT TRACK</button>
                 </div>
             </div>
         </div>
 
+        <div class="info-box">
+            <h3> RULES</h3>
+            <ul style="color: #aaa;">
+                <li>• Respect each other</li>
+                <li>• No cheat / No toxic</li>
+                <li>• Active in group / Talk</li>
+            </ul>
+        </div>
+
         <div class="btn-group">
-            <a href="mobilelegends://" class="btn btn-ml">LAUNCH GAME (MLBB)</a>
+            <a href="mobilelegends://" class="btn btn-ml">LAUNCHE GAME (MLBB)</a>
+            <a href="https://play.google.com/store/apps/details?id=com.mobile.legends" class="btn">DOWNLOAD DI PLAY STORE</a>
             <a href="#" class="btn">JOIN WHATSAPP GROUP</a>
         </div>
 
         <div id="secret-board">
-            <span style="color: #ff00ff; font-weight: bold;">[SECRET ACCESS]</span><br>
-            Password: ZENTRO-PRO-2026<br>
-            "Keep it solid!"
+            <span style="color: #00e5ff; font-weight: bold;">[INTERNAL ACCESS]</span><br><br>
+            Password Lobby: <span style="color: #ffcc00;">ZENTRO-V4</span><br>
+            "Keep it solid, Legend!"
         </div>
 
-        <div class="footer">SYSTEM MAINTAINED BY MZUVEL • 2026</div>
+        <div class="footer">
+            SYSTEM MAINTAINED BY MZUVEL • 2026
+        </div>
     </div>
 
     <script>
-        // LOADING 4 DETIK
+        // LOADING LOGIC
         window.onload = function() {
             setTimeout(() => {
                 document.getElementById('loading-overlay').style.display = 'none';
-            }, 4000);
+            }, 4000); 
             updateGreeting();
         };
 
+        // GREETING LOGIC
         function updateGreeting() {
             const hour = new Date().getHours();
-            const greet = document.getElementById('time-greeting');
-            if (hour < 11) greet.innerText = "STATUS: PAGI, LEGEND!";
-            else if (hour < 15) greet.innerText = "STATUS: SIANG, LEGEND!";
-            else if (hour < 19) greet.innerText = "STATUS: SORE, LEGEND!";
-            else greet.innerText = "STATUS: MALAM, PUSH RANK!";
+            const greetElement = document.getElementById('time-greeting');
+            if (hour < 11) greetElement.innerText = "STATUS: SELAMAT PAGI, LEGEND!";
+            else if (hour < 15) greetElement.innerText = "STATUS: SELAMAT SIANG, LEGEND!";
+            else if (hour < 19) greetElement.innerText = "STATUS: SELAMAT SORE, LEGEND!";
+            else greetElement.innerText = "STATUS: WAKTUNYA BERBURU (PUSH RANK!)";
         }
 
+        // SECRET MESSAGE LOGIC (3x KLIK LOGO)
         let clickCount = 0;
         function secretTrigger() {
             clickCount++;
@@ -359,10 +449,15 @@
             }
         }
 
+        // MUSIC LOGIC
         const songs = [
             { title: "Cuma Mantan", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-1.mp3" },
-            { title: "Wena Wena", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" }
+            { title: "Wena Wena x Choris Sonia", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-2.mp3" },
+            { title: "Viral Remix 2024", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-3.mp3" },
+            { title: "DJ Mabar Zentro", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-4.mp3" },
+            { title: "Phonk Drift MLBB", url: "https://www.soundhelix.com/examples/mp3/SoundHelix-Song-8.mp3" }
         ];
+
         let currentSongIndex = 0;
         const audio = document.getElementById('myAudio');
         const source = document.getElementById('audioSource');
@@ -372,11 +467,24 @@
             currentSongIndex = index;
             source.src = songs[currentSongIndex].url;
             titleDisplay.innerText = "Now Playing: " + songs[currentSongIndex].title;
-            audio.load(); audio.play();
+            audio.load();
+            audio.play().catch(e => console.log("Play manual."));
         }
-        function nextTrack() { currentSongIndex = (currentSongIndex + 1) % songs.length; loadSong(currentSongIndex); }
-        function prevTrack() { currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length; loadSong(currentSongIndex); }
-        audio.onended = nextTrack;
+
+        function nextTrack() {
+            currentSongIndex = (currentSongIndex + 1) % songs.length;
+            loadSong(currentSongIndex);
+        }
+
+        function prevTrack() {
+            currentSongIndex = (currentSongIndex - 1 + songs.length) % songs.length;
+            loadSong(currentSongIndex);
+        }
+
+        audio.onended = function() {
+            nextTrack();
+        };
     </script>
+
 </body>
 </html>
